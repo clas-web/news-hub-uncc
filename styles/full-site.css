@@ -1,0 +1,77 @@
+
+
+
+
+
+	#header .masthead .uncc-logo {
+		position:absolute;
+		top:20px;
+		left:10px;
+	}
+
+	#header .title-box-wrapper {
+		top:0;
+		left:140px;
+		right:0;
+		bottom:0;
+		display:table;
+		width:810px;
+	}
+	
+	#header .title-box {
+		width:810px;
+	}
+	
+	#header .masthead #header-utility {
+		position:absolute;
+		right:10px;
+		bottom:20px;
+		font-family:Arial, sanserif;
+	}
+	
+	#header .masthead #links {
+		position:absolute;
+		right:10px;
+		top:10px;
+		font-family:Arial, sanserif;
+		text-align:right;
+		font-size:0.8em;
+	}
+	
+	#header .masthead #links a {
+		display:block;
+		color:white;
+		margin-bottom:5px;
+	}
+
+	#footer .links {
+		display:inline-block;
+		margin-left:30px;
+	}
+	
+	#footer .search {
+		float:right;
+		margin-right:30px;
+	}
+
+	#footer .address {
+		margin-left:40px;
+		padding-bottom:10px;
+		width:600px;
+		display:block; 
+		float:left;
+	}
+
+	#footer .follow {
+		position:absolute;
+		right:30px;
+		bottom:10px;
+		margin:0;
+		font-size:1em;
+		font-weight:bold;
+	}
+	
+	
+	
+	
+	
