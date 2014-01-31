@@ -1,5 +1,6 @@
 <?php
 
+require_once( dirname(__FILE__).'/plugins/clas-buttons-widget.php' );
 
 add_filter( 'ns-link-target', 'nsclas_get_link_target', 9999, 3 );
 
