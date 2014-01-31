@@ -3,7 +3,7 @@
 
 
 
-	#header .masthead .uncc-logo {
+	#header .masthead a.uncc-logo {
 		position:absolute;
 		top:20px;
 		left:10px;
@@ -20,6 +20,10 @@
 	
 	#header .title-box {
 		width:810px;
+	}
+
+	#header .title-box a {
+		color:#fff;
 	}
 	
 	#header .masthead #header-utility {

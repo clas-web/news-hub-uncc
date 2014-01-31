@@ -24,19 +24,14 @@ $header_bg = ns_get_image_url( $ns_config->get_value('header', 'header-bg', 'url
 			
 			<?php 
 			$title_box_info = $ns_config->get_value('header', 'title-box'); 
-			if( $title_box_info['show-title'] || $title_box_info['show-description'] ):
 			?>
-				<div class="title-box-wrapper" style="height:100px">
-				<div class="title-box <?php echo $title_box_info['position'] ?>">
-					<?php if( $title_box_info['show-title'] ): ?>
-						<div class="name"><?php echo $title_box_info['title']; ?></div>
-					<?php endif; ?>
-					<?php if( $title_box_info['show-description'] ): ?>
-						<div class="description"><?php echo $title_box_info['description']; ?></div>
-					<?php endif; ?>
-				</div>
-				</div>
-			<?php endif; ?>
+			<div class="title-box-wrapper" style="height:100px">
+			<div class="title-box <?php echo $title_box_info['position'] ?>">
+				<a href="<?php echo $title_box_info['title-link']; ?>">
+				<div class="name"><?php echo $title_box_info['title']; ?></div>
+				</a>
+			</div>
+			</div>
 		
 			<?php if( !empty($image_info['link']) ): ?>
 				<a href="<?php echo $image_info['link']; ?>" title="<?php echo $image_info['title']; ?>" class="click-box"></a>
