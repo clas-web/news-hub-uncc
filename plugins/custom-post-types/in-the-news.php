@@ -220,7 +220,7 @@ class NS_CustomInTheNewsPostType
 			$wp_query->query_vars['order'] = 'DESC';
 			*/
 		
-			if( !is_admin() )
+			if( is_archive() )
 			{
 				$wp_query->query_vars['posts_per_page'] = 20;
 			}		
