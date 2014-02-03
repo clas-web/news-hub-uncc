@@ -219,8 +219,8 @@ class NS_CustomInTheNewsPostType
 			$wp_query->query_vars['orderby'] = 'meta_value';
 			$wp_query->query_vars['order'] = 'DESC';
 			*/
-		
-			if( is_archive() )
+			
+			if( is_category('news') && !isset($wp_query->query_vars['section']) )
 			{
 				$wp_query->query_vars['posts_per_page'] = 20;
 			}		
