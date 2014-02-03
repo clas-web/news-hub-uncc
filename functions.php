@@ -36,11 +36,11 @@ function nsclas_format_content_for_rss($content)
 function nsclas_format_excerpt_for_rss($excerpt)
 {
 	global $post;
-	global $nsclas_config;
+	global $ns_config;
 	
 	if( $post->post_type == 'event' )
 	{
-		$excerpt = '<div class="datetime">'.nsclas_get_datetime( $post->ID, true ).'</div>'.
+		$excerpt = '<div class="datetime">'.ns_event_get_datetime( $post->ID, true ).'</div>'.
 		           '<div class="location">'.get_post_meta( $post->ID, 'location', true ).'</div>';
 	}
 	else
@@ -51,13 +51,16 @@ function nsclas_format_excerpt_for_rss($excerpt)
 		if( $category->slug == 'news' )
 		{
 			$type = get_post_type( get_the_ID() );
-			$section = $nsclas_config->get_section_by_type_and_category( $type, get_the_category(), false, array('news') );
-			$story = $section->get_excerpt_story( get_post() );
+			$section = $ns_config->get_section( $type, get_the_category(), false, array('news') );
+			$story = $section->get_listing_story( get_post() );
 		
 			ob_start();
 		
-			include( get_template_directory() . '/templates/story-rss.php' );
-		
+			global $ns_template_vars;
+			$ns_template_vars['section'] = $section;
+			$ns_template_vars['story'] = $story;
+			ns_get_template_part( 'rss', 'story', 'news' );
+			
 			$excerpt = ob_get_contents();
 			ob_end_clean();
 		}
