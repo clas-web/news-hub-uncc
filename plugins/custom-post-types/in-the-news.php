@@ -96,7 +96,7 @@ class NS_CustomInTheNewsPostType
 		add_meta_box( 
 			'in_the_news_info_box',
 			'Story Info',
-			array( 'CustomInTheNewsPostType', 'info_box_content' ),
+			array( 'NS_CustomInTheNewsPostType', 'info_box_content' ),
 			'in-the-news',
 			'normal',
 			'high'
