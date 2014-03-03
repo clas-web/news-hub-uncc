@@ -1,5 +1,6 @@
 <?php
 
+
 require_once( dirname(__FILE__).'/plugins/clas-buttons-widget.php' );
 
 add_filter( 'ns-link-target', 'nsclas_get_link_target', 9999, 3 );
@@ -37,7 +38,7 @@ function nsclas_format_excerpt_for_rss($excerpt)
 {
 	global $post;
 	global $ns_config;
-	
+
 	if( $post->post_type == 'event' )
 	{
 		$excerpt = '<div class="datetime">'.ns_event_get_datetime( $post->ID, true ).'</div>'.
@@ -49,11 +50,13 @@ function nsclas_format_excerpt_for_rss($excerpt)
 		if( !$category ) return $excerpt;
 		
 		if( $category->slug == 'news' )
-		{
+		{		
 			$type = get_post_type( get_the_ID() );
-			$section = $ns_config->get_section( $type, get_the_category(), false, array('news') );
+			$categories = get_the_category();
+			foreach($categories as &$category) $category = $category->slug;
+			$section = $ns_config->get_section( $type, $categories, null, false, array('news') );
 			$story = $section->get_listing_story( get_post() );
-		
+
 			ob_start();
 		
 			global $ns_template_vars;
