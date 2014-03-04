@@ -52,8 +52,7 @@ function nsclas_format_excerpt_for_rss($excerpt)
 		if( $category->slug == 'news' )
 		{		
 			$type = get_post_type( get_the_ID() );
-			$categories = get_the_category();
-			foreach($categories as &$category) $category = $category->slug;
+			$categories = ns_get_categories();
 			$section = $ns_config->get_section( $type, $categories, null, false, array('news') );
 			$story = $section->get_listing_story( get_post() );
 
