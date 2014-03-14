@@ -13,7 +13,7 @@ $header_bg = ns_get_image_url( $ns_config->get_value('header', 'header-bg', 'url
 <div id="header-wrapper" class="clearfix" style="background-image:url('<?php echo $header_wrapper_bg; ?>');">
 
 	<div id="header" class="clearfix">
-	<?php //ns_use_widget( 'header', 'top' ); ?>
+	<?php ns_use_widget( 'header', 'top' ); ?>
 
 	
 	<div class="masthead" style="background-image:url('<?php echo $header_bg; ?>');">
@@ -52,7 +52,7 @@ $header_bg = ns_get_image_url( $ns_config->get_value('header', 'header-bg', 'url
 	
 	</div><!-- .masthead -->
 	
-	<?php //ns_use_widget( 'header', 'bottom' ); ?>
+	<?php ns_use_widget( 'header', 'bottom' ); ?>
 	</div><!-- #header -->
 
 </div><!-- #header-wrapper -->
