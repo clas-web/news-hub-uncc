@@ -3,17 +3,18 @@
 
 require_once( dirname(__FILE__).'/plugins/clas-buttons-widget.php' );
 
-add_filter( 'ns-link-target', 'nsclas_get_link_target', 9999, 3 );
+add_filter( 'ns-link-target', 'ns_clas_get_link_target', 9999, 3 );
 
-add_filter( 'the_content_feed', 'nsclas_format_content_for_rss' );
-add_filter( 'the_excerpt_rss', 'nsclas_format_excerpt_for_rss' );
+add_filter( 'the_content_feed', 'ns_clas_format_content_for_rss' );
+add_filter( 'the_excerpt_rss', 'ns_clas_format_excerpt_for_rss' );
 
-add_filter( 'frm_add_entry_meta', 'nsclas_create_datetime_field', 9999 );
-add_filter( 'the_content', 'nsclas_alter_formiable_content' );
+add_filter( 'frm_add_entry_meta', 'ns_clas_create_datetime_field', 9999 );
+add_filter( 'the_content', 'ns_clas_alter_formiable_content' );
 
 
 
-function nsclas_get_link_target( $target, $link, $post )
+
+function ns_clas_get_link_target( $target, $link, $post )
 {
 	if( strpos( $link, 'uncc.edu' ) === false )
 		return 'target="_blank"';
@@ -24,7 +25,7 @@ function nsclas_get_link_target( $target, $link, $post )
 /**
  * Formats the content for the RSS fedd.
  */
-function nsclas_format_content_for_rss($content)
+function ns_clas_format_content_for_rss($content)
 {
 	return 'none';
 }
@@ -34,7 +35,7 @@ function nsclas_format_content_for_rss($content)
 /**
  * Formats the excerpt for the RSS fedd.
  */
-function nsclas_format_excerpt_for_rss($excerpt)
+function ns_clas_format_excerpt_for_rss($excerpt)
 {
 	global $post;
 	global $ns_config;
@@ -74,7 +75,7 @@ function nsclas_format_excerpt_for_rss($excerpt)
 /**
  * Populates the datetime fields when submitting a Formidible Event form.
  */
-function nsclas_create_datetime_field( $values )
+function ns_clas_create_datetime_field( $values )
 {
 	if( $values['field_id'] == 271 ) // datetime
 	{
@@ -96,7 +97,7 @@ function nsclas_create_datetime_field( $values )
 }
 
 
-function nsclas_alter_formiable_content( $content )
+function ns_clas_alter_formiable_content( $content )
 {
 	if( strpos( $content, '[formidable' ) !== FALSE )
 	{
@@ -108,3 +109,5 @@ function nsclas_alter_formiable_content( $content )
 	}
 	return $content;
 }
+
+
