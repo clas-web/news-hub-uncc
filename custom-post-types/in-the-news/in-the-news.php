@@ -3,25 +3,25 @@
  * 
  */
 
-add_action( 'init', array('NS_CustomInTheNewsPostType', 'create_custom_post') );
-add_filter( 'post_updated_messages', array('NS_CustomInTheNewsPostType', 'update_messages') );
-add_action( 'add_meta_boxes', array('NS_CustomInTheNewsPostType', 'info_box') );
-add_action( 'save_post', array('NS_CustomInTheNewsPostType', 'info_box_save') );
+add_action( 'init', array('NS_InTheNewsCustomPostType', 'create_custom_post') );
+add_filter( 'post_updated_messages', array('NS_InTheNewsCustomPostType', 'update_messages') );
+add_action( 'add_meta_boxes', array('NS_InTheNewsCustomPostType', 'info_box') );
+add_action( 'save_post', array('NS_InTheNewsCustomPostType', 'info_box_save') );
 
-add_filter( 'ns-in-the-news-featured-story', array('NS_CustomInTheNewsPostType', 'get_featured_story'), 99, 2 );
-add_filter( 'ns-in-the-news-listing-story', array('NS_CustomInTheNewsPostType', 'get_listing_story'), 99, 2 );
-add_filter( 'ns-in-the-news-story-title', array('NS_CustomInTheNewsPostType', 'get_title'), 99, 2 );
-add_filter( 'ns-in-the-news-story-link', array('NS_CustomInTheNewsPostType', 'get_link'), 99, 2 );
+add_filter( 'ns-in-the-news-featured-story', array('NS_InTheNewsCustomPostType', 'get_featured_story'), 99, 2 );
+add_filter( 'ns-in-the-news-listing-story', array('NS_InTheNewsCustomPostType', 'get_listing_story'), 99, 2 );
+add_filter( 'ns-in-the-news-story-title', array('NS_InTheNewsCustomPostType', 'get_title'), 99, 2 );
+add_filter( 'ns-in-the-news-story-link', array('NS_InTheNewsCustomPostType', 'get_link'), 99, 2 );
 
-add_filter( 'pre_get_posts', array('NS_CustomInTheNewsPostType', 'alter_in_the_news_query') );
-add_filter( 'get_post_time', array('NS_CustomInTheNewsPostType', 'update_in_the_news_publication_date'), 9999, 3 );
-add_filter( 'posts_groupby', array('NS_CustomInTheNewsPostType', 'alter_in_the_news_groupby'), 9999, 2 );
-add_filter( 'posts_join', array('NS_CustomInTheNewsPostType', 'alter_in_the_news_join'), 9999, 2 );
-add_filter( 'posts_orderby', array('NS_CustomInTheNewsPostType', 'alter_in_the_news_orderby'), 9999, 2 );
-add_filter( 'posts_fields', array('NS_CustomInTheNewsPostType', 'alter_in_the_news_fields'), 9999, 2 );
+add_filter( 'pre_get_posts', array('NS_InTheNewsCustomPostType', 'alter_in_the_news_query') );
+add_filter( 'get_post_time', array('NS_InTheNewsCustomPostType', 'update_in_the_news_publication_date'), 9999, 3 );
+add_filter( 'posts_groupby', array('NS_InTheNewsCustomPostType', 'alter_in_the_news_groupby'), 9999, 2 );
+add_filter( 'posts_join', array('NS_InTheNewsCustomPostType', 'alter_in_the_news_join'), 9999, 2 );
+add_filter( 'posts_orderby', array('NS_InTheNewsCustomPostType', 'alter_in_the_news_orderby'), 9999, 2 );
+add_filter( 'posts_fields', array('NS_InTheNewsCustomPostType', 'alter_in_the_news_fields'), 9999, 2 );
 
 	
-class NS_CustomInTheNewsPostType
+class NS_InTheNewsCustomPostType
 {
 	/**
 	 * Constructor.
@@ -96,7 +96,7 @@ class NS_CustomInTheNewsPostType
 		add_meta_box( 
 			'in_the_news_info_box',
 			'Story Info',
-			array( 'NS_CustomInTheNewsPostType', 'info_box_content' ),
+			array( 'NS_InTheNewsCustomPostType', 'info_box_content' ),
 			'in-the-news',
 			'normal',
 			'high'

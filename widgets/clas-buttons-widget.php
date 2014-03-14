@@ -42,16 +42,12 @@ class NS_ClasButtonsWidget extends WP_Widget
 	 */
 	public function __construct()
 	{
-		// widget actual processes
-		
-		//ns_print('construct');
-		
 		parent::__construct(
-			'nsclas_buttons_widget', // Base ID
-			__("CLAS Buttons", 'text_domain'), // Name
+			'ns-clas-buttons-widget',
+			'CLAS Buttons',
 			array( 
-				'description' => __( 'Displays the three CLAS buttons.', 'text_domain' ), 
-			) // Args
+				'description' => 'Displays the three CLAS buttons.',
+			)
 		);
 	}
 
