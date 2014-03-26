@@ -9,6 +9,27 @@ add_filter( 'posts_orderby',  'ns_clas_connections_alter_search_orderby',  9999,
 
 add_action( 'pre_get_posts', 'ns_clas_connections_alter_archive_order' );
 
+
+
+
+function ns_clas_connections_alter_archive_order( $wp_query )
+{
+    if( (!is_admin()) &&
+    	(is_post_type_archive('connection') || 
+		 is_tax( 'connection-group' ) || 
+		 is_tax( 'connection-link' ) ) &&
+    	($wp_query->is_main_query()) )
+	{
+		$wp_query->set( 'orderby', 'meta_value' );
+		$wp_query->set( 'meta_key', 'sort-title' );
+		$wp_query->set( 'order', 'asc' );
+    }
+
+    return $order_by;
+}
+
+
+
 /**
  * 
  */
