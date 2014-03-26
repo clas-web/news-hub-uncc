@@ -12,8 +12,15 @@ add_filter( 'the_excerpt_rss', 'ns_clas_format_excerpt_for_rss' );
 add_filter( 'frm_add_entry_meta', 'ns_clas_create_datetime_field', 9999 );
 add_filter( 'the_content', 'ns_clas_alter_formiable_content' );
 
+add_filter( 'init', 'ns_clas_add_site_functions' );
 
 
+
+function ns_clas_add_site_functions()
+{
+	if( $filepath = ns_get_theme_file_path('functions/'.ns_get_blog_path_name().'.php') )
+		require_once( $filepath );
+}
 
 function ns_clas_get_link_target( $target, $link, $post )
 {
