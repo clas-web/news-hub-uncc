@@ -15,7 +15,7 @@ $ns_template_vars['page-title'] = single_term_title( '', false );
 $ns_template_vars['section'] = $ns_config->get_section( 'connection' );
 
 $settings = Connections_ConnectionCustomPostType::get_settings();
-$ns_template_vars['listing-name'] = $settings['name']['link']['full_single'];
+$ns_template_vars['listing-name'] = $settings['name']['link']['full_plural'];
 //$ns_template_vars['description'] = 'Click <a href="'.get_search_link( single_term_title( '', false ) ).'">here</a> to perform a search.';
 $ns_template_vars['description'] = '';
 
