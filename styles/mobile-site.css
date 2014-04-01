@@ -477,4 +477,8 @@
 		float:right;
 	}
 	
+	#content iframe {
+		width:100%;
+		height:auto;
+	}
 
