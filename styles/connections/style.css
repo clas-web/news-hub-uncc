@@ -86,3 +86,7 @@
 	.widget_tag_cloud li a {
 		color:black;
 	}
+	
+	.widget_connections-hub_random-connections-spotlight-widget .find-more {
+		text-align:right;
+	}
