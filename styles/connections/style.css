@@ -23,8 +23,8 @@
 	div.widget_d3_word_cloud_widget svg {
 		background-color: #fffdf9;
 		background-image:url('./../../images/cloud-background.png');
+		background-size:100%;		
 		border: solid 1px #eeeae1;
-		padding:15px;
 	}
 
 	div.widget_d3_word_cloud_widget svg a:hover {
