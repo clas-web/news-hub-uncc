@@ -4,6 +4,8 @@
 <?php
 $section = $ns_template_vars['section'];
 $story = $section->get_single_story( $post );
+$settings = Connections_ConnectionCustomPostType::get_settings();
+$connection_links_name = $settings['name']['link']['full_plural'];
 
 $links = $story['links'];
 if( !$ns_mobile_support->use_mobile_site )
@@ -53,6 +55,7 @@ else
 		
 			<?php $count = 1; ?>
 			<div class="connection-links columns-<?php echo count($links); ?> clearfix">
+				<h5><?php echo $connection_links_name; ?></h5>
 				<?php foreach( $links as $link_column ): ?>
 				<div class="column column-<?php echo $count; ?>">
 				<?php foreach( $link_column as $link ): ?>
