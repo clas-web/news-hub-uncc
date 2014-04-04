@@ -130,7 +130,9 @@
 		display:block;
 		float:right;
 		margin:0px;
+		display:none;
 	}
+	
 
 /****************************************************************************************
  * Subheader (site name and logo)
