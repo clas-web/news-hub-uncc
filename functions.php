@@ -120,3 +120,21 @@ function ns_clas_alter_formiable_content( $content )
 }
 
 
+if( !function_exists('ns_get_anchor') ):
+function ns_get_anchor( $url, $title, $class = null, $contents = null )
+{
+	if( $url === null ) return $contents;
+	
+	$anchor = '<a href="'.$url.'" title="'.htmlentities($title).'"';
+	if( strpos( $url, 'uncc.edu' ) === false ) $anchor .= ' target="_blank"';
+	if( $class ) $anchor .= ' class="'.$class.'"';
+	$anchor .= '>';
+
+	if( $contents !== null )
+		$anchor .= $contents.'</a>';
+
+	return $anchor;
+}
+endif;
+
+
