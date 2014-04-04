@@ -1,0 +1,45 @@
+
+
+	#subheader {
+		border-bottom-color:#e17c19;
+	}
+
+
+	#sidebar .section-box ul {
+		list-style:none;
+		padding:0px;
+	}
+
+	#sidebar .section-box li {
+		padding:2px;
+	}
+
+	#sidebar .section-box li a {
+		color:black;
+	}
+	
+	.story.portrait-image .image {
+		float: right !important;
+		margin-right: 0px !important;
+		margin-left: 10px !important;
+	}
+	
+	.story.portrait-image .description {
+		margin-left: 0px !important;
+		margin-right: 10px !important;
+	}
+	
+	.story {
+		border-bottom:solid 1px #ccc;
+	}
+	
+	.story:last-of-type {
+		border:none !important;
+	}
+	
+	.story .description hr,
+	.story .description blockquote {
+		border:none;
+		padding:0px 10px;
+	}
+	
