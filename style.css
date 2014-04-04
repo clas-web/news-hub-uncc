@@ -756,8 +756,11 @@ Tags:
 
 
 
+	#sidebar .widget.section-box.widget_text h2 {
+		margin-bottom:10px;
+	}
 
-	#sidebar .widget.section-box.widget_text {
+	#sidebar .widget.section-box.widget_text .textwidget {
 		font-size:0.8em;
 		color:#666;
 	}
