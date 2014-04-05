@@ -18,11 +18,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 {
 	public static function get_featured_story( $story, $post )
 	{
-		$story['contact-info'] = get_post_meta( $post->ID, 'contact-info', true );
-		$story['groups'] = self::get_groups( $post->ID );
-		$story['links'] = self::get_links( $post->ID );
-		$story['site-link'] = self::get_site_link( $post->ID );
-	
+		self::get_story_data( $story, $post );
 		return $story;
 	}
 
@@ -31,10 +27,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 	{
 		unset($story['description']['excerpt']);
 
-		$story['contact-info'] = get_post_meta( $post->ID, 'contact-info', true );
-		$story['groups'] = self::get_groups( $post->ID );
-		$story['links'] = self::get_links( $post->ID );
-		$story['site-link'] = self::get_site_link( $post->ID );
+		self::get_story_data( $story, $post );
 		
 		if( is_search() )
 		{
@@ -118,11 +111,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 
 	public static function get_single_story( $story, $post )
 	{
-		$story['contact-info'] = get_post_meta( $post->ID, 'contact-info', true );
-		$story['groups'] = self::get_groups( $post->ID );
-		$story['links'] = self::get_links( $post->ID );
-		$story['site-link'] = self::get_site_link( $post->ID );
-	
+		self::get_story_data( $story, $post );
 		return $story;
 	}
 
@@ -171,6 +160,31 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 
 		return $url;
 	}
-
+	
+	
+	private static function get_story_data( &$story, $post )
+	{
+		$entry_method = get_post_meta( $post->ID, 'entry-method', true );
+		
+		switch( $entry_method )
+		{
+			case( 'synch' ):
+				$story['contact-info'] = get_post_meta( $post->ID, 'contact-info', true );
+				$story['site-link'] = self::get_site_link( $post->ID );
+				break;
+				
+			case( 'manual' ):
+			default:
+				$story['contact-info'] = '';
+				$story['contact-info'] .= '<div class="location">Office: '.get_post_meta( $post->ID, 'contact-location', true ).'</div>';
+				$story['contact-info'] .= '<div class="phone">Phone: '.get_post_meta( $post->ID, 'contact-phone', true ).'</div>';
+				$story['contact-info'] .= '<div class="email">Email: '.get_post_meta( $post->ID, 'contact-email', true ).'</div>';
+				$story['site-link'] = null;
+				break;
+		}
+		
+		$story['groups'] = self::get_groups( $post->ID );
+		$story['links'] = self::get_links( $post->ID );
+	}
 }
 
