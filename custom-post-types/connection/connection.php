@@ -32,22 +32,14 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		if( is_search() )
 		{
 			$search_term = ns_clas_connections_get_search_term( null, false );
-// 			ns_print( $search_term, 'term' );
 			
 			self::highlight_term( $story['title'], $search_term );
 
 			foreach( $story['groups'] as &$group )
-			{
 				self::highlight_term( $group['name'], $search_term );
-			}
-			
+
 			foreach( $story['links'] as &$link )
-			{
-// 				ns_print($link);
-// 				ns_print( $link['name'] );
 				self::highlight_term( $link['name'], $search_term );
-// 				ns_print($link);
-			}
 			
 			$search_content = get_post_meta( $post->ID, 'search-content', true );
 			$search_content = ( $search_content ? $search_content : '' );
@@ -100,11 +92,8 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 	
 	private static function highlight_term( &$text, $highlight_text )
 	{
-//  		ns_print( $text.' :::: '.$highlight_text, 'text and highlight' );
 		$count = 0;
         $text = preg_replace( '/'.$highlight_text.'/i', '<strong>$0</strong>', $text, -1, $count );
-//  		ns_print( $text, 'after preg' );
-//  		ns_print( $count );
         return $count;
 	}
 
@@ -186,5 +175,6 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		$story['groups'] = self::get_groups( $post->ID );
 		$story['links'] = self::get_links( $post->ID );
 	}
+	
 }
 
