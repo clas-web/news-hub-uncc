@@ -43,3 +43,37 @@
 		padding:0px 10px;
 	}
 	
+	.story h3 {
+	}
+	
+	.story a {
+		color:black;
+	}
+
+	.story .byline {
+		margin-bottom:5px;
+		font-size:0.8em;
+/* 		display:block; */
+/* 		clear:right; */
+	}
+	
+	.story .description,
+	.story .description a {
+		color:#666;
+	}
+		
+	.story .description a:hover {
+		text-decoration:none;
+	}
+	
+	.story .description,
+	.story .description blockquote {
+		font-size:0.9em !important;
+		line-height:1.5em !important;
+	}
+	
+	.story .excerpt {
+/* 		float:left; */
+	}
+
+

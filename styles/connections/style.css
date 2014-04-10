@@ -100,3 +100,7 @@
 		float:left;
 	}
 
+	#content .story .post-contents {
+		line-height:1.5em;
+	}
+
