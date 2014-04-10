@@ -154,10 +154,17 @@ Tags:
 		padding:1em;
 	}
 
-	#header .title-box .name {
+	#header .title-box .title {
 		font-size:1.5em;
+		letter-spacing: 0.05em;
 	}
 
+	#header .title-box .description {
+		font-size:1.0em;
+		font-style:italic;
+		letter-spacing: 0.05em;
+	}
+	
 	#title-box a:hover {
 		text-decoration:underline;
 	}
