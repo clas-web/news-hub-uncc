@@ -1,5 +1,14 @@
 <?php
+//========================================================================================
+// 
+//
+// @package WordPress
+// @subpackage news-site-clas
+//========================================================================================
 
+
+//========================================================================================
+//====================================================== Default filters and actions =====
 
 require_once( dirname(__FILE__).'/custom-post-types/connection/connection.php' );
 require_once( dirname(__FILE__).'/widgets/clas-buttons-widget.php' );
@@ -16,7 +25,9 @@ add_filter( 'the_content', 'ns_clas_alter_formiable_content' );
 add_filter( 'init', 'ns_clas_add_site_functions' );
 
 
-
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 function ns_clas_add_site_functions()
 {
 	$filepath = ns_get_theme_file_path('functions/'.NS_BLOG_NAME.'.php');
@@ -31,6 +42,10 @@ function ns_clas_get_link_target( $target, $link, $post )
 }
 
 
+
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 /**
  * Formats the content for the RSS fedd.
  */
@@ -41,6 +56,9 @@ function ns_clas_format_content_for_rss($content)
 
 
 
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 /**
  * Formats the excerpt for the RSS fedd.
  */
@@ -81,6 +99,11 @@ function ns_clas_format_excerpt_for_rss($excerpt)
 	return $excerpt;
 }
 
+
+
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 /**
  * Populates the datetime fields when submitting a Formidible Event form.
  */
@@ -106,6 +129,10 @@ function ns_clas_create_datetime_field( $values )
 }
 
 
+
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 function ns_clas_alter_formiable_content( $content )
 {
 	if( strpos( $content, '[formidable' ) !== FALSE )
@@ -120,6 +147,10 @@ function ns_clas_alter_formiable_content( $content )
 }
 
 
+
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
 if( !function_exists('ns_get_anchor') ):
 function ns_get_anchor( $url, $title, $class = null, $contents = null )
 {
