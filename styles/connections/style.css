@@ -90,3 +90,13 @@
 	.widget_connections-hub_random-connections-spotlight-widget .find-more {
 		text-align:right;
 	}
+
+
+	#page-navigation .nav-next {
+		float:right;
+	}
+	
+	#page-navigation .nav-prev {
+		float:left;
+	}
+
