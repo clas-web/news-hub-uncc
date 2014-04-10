@@ -19,8 +19,8 @@ add_filter( 'init', 'ns_clas_add_site_functions' );
 
 function ns_clas_add_site_functions()
 {
-	if( $filepath = ns_get_theme_file_path('functions/'.ns_get_blog_path_name().'.php') )
-		require_once( $filepath );
+	$filepath = ns_get_theme_file_path('functions/'.NS_BLOG_NAME.'.php');
+	if( $filepath ) require_once( $filepath );
 }
 
 function ns_clas_get_link_target( $target, $link, $post )
