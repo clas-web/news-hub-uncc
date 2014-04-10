@@ -17,7 +17,7 @@ function ns_clas_connections_show_connections_as_posts( $wp_query )
 {
 	if( is_admin() ) return $wp_query;
 
-	if( $wp_query->is_main_query() )
+	if( !$wp_query->is_search && $wp_query->is_main_query() )
 	{
 // 		ns_print($wp_query);
 
@@ -113,7 +113,7 @@ function ns_clas_connections_alter_search_join( $join, $wp_query )
 {
 	global $wpdb;
 
-	if( $wp_query->is_search )
+	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
 		$join .= "
 			JOIN $wpdb->postmeta ON $wpdb->posts.ID = $wpdb->postmeta.post_id 
@@ -135,7 +135,7 @@ function ns_clas_connections_alter_search_where( $where, $wp_query )
 {
 	global $wpdb;
 
-	if( $wp_query->is_search )
+	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
 		$search_term = ns_clas_connections_get_search_term( $wp_query->query_vars['s'] );
 		$where = "
@@ -161,7 +161,7 @@ function ns_clas_connections_alter_search_orderby( $order_by, $wp_query )
 {
 	global $wpdb;
 
-	if( $wp_query->is_search )
+	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
 		$search_term = ns_clas_connections_get_search_term( $wp_query->query_vars['s'] );
 		$order_by = "
@@ -185,7 +185,7 @@ function ns_clas_connections_alter_search_distinct()
 	global $wp_query;
 	$distinct = '';
 	
-	if( $wp_query->is_search )
+	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
 		$distinct = 'DISTINCT';
 	}
