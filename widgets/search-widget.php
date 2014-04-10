@@ -49,7 +49,7 @@ class NS_CLASSearchWidget extends WP_Widget
 
 		<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>" >
 			<label class="screen-reader-text" for="s">Search for:</label>
-			<div class="textbox_wrapper"><input type="text" value="<?php echo $search_term; ?>" name="s" id="s" /></div>
+			<div class="textbox_wrapper"><input type="text" value="<?php echo $search_term; ?>" name="s" id="search-widget-textbox" class="s" /></div>
 			<input type="submit" id="searchsubmit" value="Search" />
 		</form>
 
