@@ -110,3 +110,8 @@
 		height:auto;
 	}
 	
+	#content .searchform input[type="submit"] {
+		display:none;
+	}
+	
+	
