@@ -61,7 +61,9 @@ class NS_InTheNewsCustomPostType
 			'has_archive'   => true,
 		);
 		
-		register_post_type( 'in-the-news', $args );	
+		register_post_type( 'in-the-news', $args );
+		
+		flush_rewrite_rules();
 	}
 	
 	
