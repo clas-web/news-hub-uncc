@@ -175,13 +175,12 @@ Tags:
  ****************************************************************************************/
 
 	.searchform input[type="text"] {
-		margin:0px;
-		padding:0 0 0 3px;
-		border:0px;
-		min-height:19px;
-		border-radius:0;
-		width:160px;
-		vertical-align:middle;
+		margin: 0px;
+		min-height: 19px;
+		border-radius: 0;
+		padding-left: 5px;
+		padding-right: 5px;
+		vertical-align: middle;
 	}
 
 	.searchform input[type="image"] {
@@ -190,8 +189,40 @@ Tags:
 		min-height:19px;
 		display:inline-block;
 		outline:none;
-		vertical-align:bottom;
+		vertical-align: middle;
 		border-radius:0;
+	}
+	
+	#content .searchform input[type="text"] {
+		width: 548px;
+		font-size: 1.3em;
+		vertical-align: middle;
+		min-height: 2em;
+		line-height: 2em;
+		border: solid 1px #ccc;
+	}
+	
+	#content .searchform input[type="submit"] {
+		background-color: #f6f6f6;
+		color: #000;
+		border: 1px solid #ccc;
+		width: 120px;
+		border-radius: 0;
+		font-size: 1.3em;
+		margin-left: 5px;
+		min-height: 2em;
+		padding: 0;
+		vertical-align: middle;
+		line-height: 2em;
+	}
+
+	#content .searchform input[type="submit"]:hover {
+		background-color: #f6f6f6;
+		color: #000;
+		border: 1px solid #bbb;
+		box-shadow: 0 0 1px #ccc;
+		cursor: pointer;
+		cursor: hand;
 	}
 	
 	body.search #main .searchform {
@@ -322,7 +353,7 @@ Tags:
 		color:#666;
 		padding-bottom:5px;
 		font-size:0.9em;
-		line-height:1.5em;
+		line-height:1.2em;
 	}
 
 	.story .description > .more {
@@ -412,6 +443,38 @@ Tags:
 		background-image:url('./images/button-exchange-online-bg.png');
 		background-color:#eedeb9;
 		border-color:#debe76;
+	}
+	
+	#sidebar .widget_ns-clas-search-widget .screen-reader-text {
+		display:none;
+	}
+	
+	#sidebar .widget_ns-clas-search-widget .textbox_wrapper {
+		height: 28px;
+		display: inline-block;
+		width: 189px;
+		border: solid 1px #ccc;
+		vertical-align: middle;
+		margin-right: -5px;
+	}
+	
+	#sidebar .widget_ns-clas-search-widget .textbox_wrapper input {
+		width:95%;
+		height:28px;
+	}
+
+	#sidebar .widget_ns-clas-search-widget input[type=submit] {
+		background: #006633 url('images/google-search-button.png') no-repeat center center;
+		color: transparent;
+		border: none;
+		width: 30px;
+		height: 30px;
+		border: solid 1px #006633;
+		padding: 0;
+	}
+	
+	input[type=text] {
+		outline:none;
 	}
 
 /****************************************************************************************
