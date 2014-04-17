@@ -11,7 +11,7 @@
 //====================================================== Default filters and actions =====
 
 require_once( dirname(__FILE__).'/custom-post-types/connection/connection.php' );
-require_once( dirname(__FILE__).'/widgets/clas-buttonh-widget.php' );
+require_once( dirname(__FILE__).'/widgets/clas-buttons-widget.php' );
 require_once( dirname(__FILE__).'/widgets/search-widget.php' );
 
 add_filter( 'nh-link-target', 'nh_clas_get_link_target', 9999, 3 );
