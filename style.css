@@ -225,12 +225,12 @@ Tags:
 		cursor: hand;
 	}
 	
-	body.search #main .searchform {
+	body.search #content .searchform {
 		//background-color:#f6f6f6;
 		margin-bottom:10px;
 	}
 	
-	body.search #main .searchform input[type="text"] {
+	body.search #content .searchform input[type="text"] {
 		margin:0px;
 		min-height:2em;
 		border-radius:0;
@@ -241,7 +241,7 @@ Tags:
 		font-size:0.9em;
 	}
 	
-	body.search #main .searchform input[type="submit"] {
+	body.search #content .searchform input[type="submit"] {
 		width:120px;
 		border-radius:0;
 		font-size:1.3em;
