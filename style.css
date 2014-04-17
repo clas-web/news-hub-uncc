@@ -595,6 +595,17 @@ Tags:
  * Single Page
  ****************************************************************************************/
 
+
+body.page #content .story .description  {
+	color:black;
+	line-height:1.5em;
+}
+
+body.page #content .story .description ul,
+body.page #content .story .description ol {
+	line-height:1.2em;
+}
+
 	
 
 /****************************************************************************************
