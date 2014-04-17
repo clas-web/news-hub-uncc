@@ -6,15 +6,15 @@ if( !class_exists('Connections_ConnectionCustomPostType') )
 	return;
 	
 
-//echo 'NS_ConnectionCustomPostType';
+//echo 'NH_ConnectionCustomPostType';
 
-add_filter( 'ns-connection-featured-story', array('NS_ConnectionCustomPostType','get_featured_story'), 99, 2 );
-add_filter( 'ns-connection-listing-story', array('NS_ConnectionCustomPostType','get_listing_story'), 99, 2 );
-add_filter( 'ns-connection-single-story', array('NS_ConnectionCustomPostType','get_single_story'), 99, 2 );
+add_filter( 'nh-connection-featured-story', array('NH_ConnectionCustomPostType','get_featured_story'), 99, 2 );
+add_filter( 'nh-connection-listing-story', array('NH_ConnectionCustomPostType','get_listing_story'), 99, 2 );
+add_filter( 'nh-connection-single-story', array('NH_ConnectionCustomPostType','get_single_story'), 99, 2 );
 
 
 
-class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
+class NH_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 {
 	public static function get_featured_story( $story, $post )
 	{
@@ -31,7 +31,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		
 		if( is_search() )
 		{
-			$search_term = ns_clas_connections_get_search_term( null, false );
+			$search_term = nh_clas_connections_get_search_term( null, false );
 			
 			self::highlight_term( $story['title'], $search_term );
 
@@ -47,7 +47,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 			
 			for( $i = 0; $i < count($search_content); $i++ )
 			{
-				if( !self::contains_term( $search_content[$i], $search_term ) )
+				if( !self::containh_term( $search_content[$i], $search_term ) )
 				{
 					array_splice( $search_content, $i, 1 ); $i--;
 				}
@@ -84,7 +84,7 @@ class NS_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		return $story;
 	}
 	
-	private static function contains_term( &$text, $highlight_text )
+	private static function containh_term( &$text, $highlight_text )
 	{
 		if( preg_match( '/'.$highlight_text.'/i', $text ) === 1 ) return true;
 		return false;

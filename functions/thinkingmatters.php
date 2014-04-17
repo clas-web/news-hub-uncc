@@ -1,8 +1,8 @@
 <?php
 
-add_filter( 'ns-featured-story', 'thinkingmatters_get_featured_story', 99, 2 );
-add_filter( 'ns-listing-story', 'thinkingmatters_get_listing_story', 99, 2 );
-add_filter( 'ns-single-story', 'thinkingmatters_get_single_story', 99, 2 );
+add_filter( 'nh-featured-story', 'thinkingmatters_get_featured_story', 99, 2 );
+add_filter( 'nh-listing-story', 'thinkingmatters_get_listing_story', 99, 2 );
+add_filter( 'nh-single-story', 'thinkingmatters_get_single_story', 99, 2 );
 
 
 function thinkingmatters_get_featured_story( $story, $post )

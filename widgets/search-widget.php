@@ -2,10 +2,10 @@
 
 
 add_action('widgets_init',
-     create_function('', 'return register_widget("NS_CLASSearchWidget");')
+     create_function('', 'return register_widget("NH_SearchWidget");')
 );
 
-class NS_CLASSearchWidget extends WP_Widget
+class NH_SearchWidget extends WP_Widget
 {
 
 	/**
@@ -14,7 +14,7 @@ class NS_CLASSearchWidget extends WP_Widget
 	public function __construct()
 	{
 		parent::__construct(
-			'ns-clas-search-widget',
+			'nh-clas-search-widget',
 			'CLAS Search',
 			array( 
 				'description' => 'Displays a custom made search textbox.',
@@ -35,15 +35,15 @@ class NS_CLASSearchWidget extends WP_Widget
 		if( !empty($instance['title']) )
 			echo $args['before_title'].$instance['title'].$args['after_title'];
 
-		global $ns_clas_search_term;
+		global $nh_clas_search_term;
 		$search_term = '';
 		if( is_search() )
 		{
 			$search_term = get_search_query();
 		}
-		else if( isset($ns_clas_search_term) )
+		else if( isset($nh_clas_search_term) )
 		{
-			$search_term = $ns_clas_search_term;
+			$search_term = $nh_clas_search_term;
 		}
 		?>
 

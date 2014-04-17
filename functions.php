@@ -11,30 +11,30 @@
 //====================================================== Default filters and actions =====
 
 require_once( dirname(__FILE__).'/custom-post-types/connection/connection.php' );
-require_once( dirname(__FILE__).'/widgets/clas-buttons-widget.php' );
+require_once( dirname(__FILE__).'/widgets/clas-buttonh-widget.php' );
 require_once( dirname(__FILE__).'/widgets/search-widget.php' );
 
-add_filter( 'ns-link-target', 'ns_clas_get_link_target', 9999, 3 );
+add_filter( 'nh-link-target', 'nh_clas_get_link_target', 9999, 3 );
 
-add_filter( 'the_content_feed', 'ns_clas_format_content_for_rss' );
-add_filter( 'the_excerpt_rss', 'ns_clas_format_excerpt_for_rss' );
+add_filter( 'the_content_feed', 'nh_clas_format_content_for_rss' );
+add_filter( 'the_excerpt_rss', 'nh_clas_format_excerpt_for_rss' );
 
-add_filter( 'frm_add_entry_meta', 'ns_clas_create_datetime_field', 9999 );
-add_filter( 'the_content', 'ns_clas_alter_formiable_content' );
+add_filter( 'frm_add_entry_meta', 'nh_clas_create_datetime_field', 9999 );
+add_filter( 'the_content', 'nh_clas_alter_formiable_content' );
 
-add_filter( 'init', 'ns_clas_add_site_functions' );
+add_filter( 'init', 'nh_clas_add_site_functions' );
 
 
 //----------------------------------------------------------------------------------------
 // 
 //----------------------------------------------------------------------------------------
-function ns_clas_add_site_functions()
+function nh_clas_add_site_functions()
 {
-	$filepath = ns_get_theme_file_path('functions/'.NS_BLOG_NAME.'.php');
+	$filepath = nh_get_theme_file_path('functions/'.NH_BLOG_NAME.'.php');
 	if( $filepath ) require_once( $filepath );
 }
 
-function ns_clas_get_link_target( $target, $link, $post )
+function nh_clas_get_link_target( $target, $link, $post )
 {
 	if( strpos( $link, 'uncc.edu' ) === false )
 		return 'target="_blank"';
@@ -49,7 +49,7 @@ function ns_clas_get_link_target( $target, $link, $post )
 /**
  * Formats the content for the RSS fedd.
  */
-function ns_clas_format_content_for_rss($content)
+function nh_clas_format_content_for_rss($content)
 {
 	return 'none';
 }
@@ -62,14 +62,14 @@ function ns_clas_format_content_for_rss($content)
 /**
  * Formats the excerpt for the RSS fedd.
  */
-function ns_clas_format_excerpt_for_rss($excerpt)
+function nh_clas_format_excerpt_for_rss($excerpt)
 {
 	global $post;
-	global $ns_config;
+	global $nh_config;
 
 	if( $post->post_type == 'event' )
 	{
-		$excerpt = '<div class="datetime">'.ns_event_get_datetime( $post->ID, true ).'</div>'.
+		$excerpt = '<div class="datetime">'.nh_event_get_datetime( $post->ID, true ).'</div>'.
 		           '<div class="location">'.get_post_meta( $post->ID, 'location', true ).'</div>';
 	}
 	else
@@ -80,16 +80,16 @@ function ns_clas_format_excerpt_for_rss($excerpt)
 		if( $category->slug == 'news' )
 		{		
 			$type = get_post_type( get_the_ID() );
-			$categories = ns_get_categories();
-			$section = $ns_config->get_section( $type, $categories, null, false, array('news') );
+			$categories = nh_get_categories();
+			$section = $nh_config->get_section( $type, $categories, null, false, array('news') );
 			$story = $section->get_listing_story( get_post() );
 
 			ob_start();
 		
-			global $ns_template_vars;
-			$ns_template_vars['section'] = $section;
-			$ns_template_vars['story'] = $story;
-			ns_get_template_part( 'rss', 'story', 'news' );
+			global $nh_template_vars;
+			$nh_template_vars['section'] = $section;
+			$nh_template_vars['story'] = $story;
+			nh_get_template_part( 'rss', 'story', 'news' );
 			
 			$excerpt = ob_get_contents();
 			ob_end_clean();
@@ -107,7 +107,7 @@ function ns_clas_format_excerpt_for_rss($excerpt)
 /**
  * Populates the datetime fields when submitting a Formidible Event form.
  */
-function ns_clas_create_datetime_field( $values )
+function nh_clas_create_datetime_field( $values )
 {
 	if( $values['field_id'] == 271 ) // datetime
 	{
@@ -133,7 +133,7 @@ function ns_clas_create_datetime_field( $values )
 //----------------------------------------------------------------------------------------
 // 
 //----------------------------------------------------------------------------------------
-function ns_clas_alter_formiable_content( $content )
+function nh_clas_alter_formiable_content( $content )
 {
 	if( strpos( $content, '[formidable' ) !== FALSE )
 	{
@@ -151,8 +151,8 @@ function ns_clas_alter_formiable_content( $content )
 //----------------------------------------------------------------------------------------
 // 
 //----------------------------------------------------------------------------------------
-if( !function_exists('ns_get_anchor') ):
-function ns_get_anchor( $url, $title, $class = null, $contents = null )
+if( !function_exists('nh_get_anchor') ):
+function nh_get_anchor( $url, $title, $class = null, $contents = null )
 {
 	if( $url === null ) return $contents;
 	

@@ -1,10 +1,10 @@
 
 
-<?php global $ns_config, $ns_mobile_support, $ns_template_vars; ?>
-<?php if( $ns_config->show_template_part('footer') ): ?>
+<?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
+<?php if( $nh_config->show_template_part('footer') ): ?>
 
 <?php
-function ns_footer_search()
+function nh_footer_search()
 {
 	?>
 	<div class="search">
@@ -16,15 +16,15 @@ function ns_footer_search()
 	<?php
 }
 
-function ns_footer_links()
+function nh_footer_links()
 {
-	global $ns_config, $ns_mobile_support;
+	global $nh_config, $nh_mobile_support;
 	?>
 	<div class="links">
 	
 		<ul> 
-			<?php if( !$ns_mobile_support->use_mobile_site ): ?>
-				<li><?php ns_image( $ns_config->get_value('footer', 'uncc-logo') ); ?></li>
+			<?php if( !$nh_mobile_support->use_mobile_site ): ?>
+				<li><?php nh_image( $nh_config->get_value('footer', 'uncc-logo') ); ?></li>
 			<?php endif; ?>
 			<li><a href="http://www.unccharlottealerts.com" title="Alerts and Advisories at UNC Charlotte" target="_blank">Alerts</a></li> 
 			<li><a href="http://jobs.uncc.edu" title="Jobs at UNC Charlotte">Jobs</a></li> 
@@ -38,25 +38,25 @@ function ns_footer_links()
 	<?php
 }
 
-function ns_footer_follow()
+function nh_footer_follow()
 {
-	global $ns_config;
+	global $nh_config;
 	?>
 	<div class="follow"> 
 		<div>Follow UNC Charlotte</div> 
-		<span class="tm-facebook social-icons"><?php ns_image( $ns_config->get_value('footer', 'facebook') ); ?></span>  
-		<span class="tm-blog social-icons"><?php ns_image( $ns_config->get_value('footer', 'blogger') ); ?></span> 
-		<span class="tm-twitter social-icons"><?php ns_image( $ns_config->get_value('footer', 'twitter') ); ?></span> 
-		<span class="tm-flickr social-icons"><?php ns_image( $ns_config->get_value('footer', 'flickr') ); ?></span> 
-		<span class="tm-youtube social-icons"><?php ns_image( $ns_config->get_value('footer', 'youtube') ); ?></span> 
+		<span class="tm-facebook social-icons"><?php nh_image( $nh_config->get_value('footer', 'facebook') ); ?></span>  
+		<span class="tm-blog social-icons"><?php nh_image( $nh_config->get_value('footer', 'blogger') ); ?></span> 
+		<span class="tm-twitter social-icons"><?php nh_image( $nh_config->get_value('footer', 'twitter') ); ?></span> 
+		<span class="tm-flickr social-icons"><?php nh_image( $nh_config->get_value('footer', 'flickr') ); ?></span> 
+		<span class="tm-youtube social-icons"><?php nh_image( $nh_config->get_value('footer', 'youtube') ); ?></span> 
 	</div>  <!-- .follow --> 
 	<?php
 }
 
-function ns_footer_address()
+function nh_footer_address()
 {
-	global $ns_mobile_support;
-	if( $ns_mobile_support->use_mobile_site ):
+	global $nh_mobile_support;
+	if( $nh_mobile_support->use_mobile_site ):
 	?>
 		<div class="address">
 			<span class="name"><a href="http://www.uncc.edu" title="www.uncc.edu">The University of North Carolina at Charlotte</a></span>
@@ -82,35 +82,35 @@ function ns_footer_address()
 <div id="footer-wrapper" class="clearfix">
 
 	<div id="footer" class="clearfix">
-	<?php ns_use_widget( 'footer', 'top' ); ?>
+	<?php nh_use_widget( 'footer', 'top' ); ?>
 	
 		<div class="bar top">
-			<?php if( !$ns_mobile_support->use_mobile_site ): ns_footer_links(); ns_footer_search(); endif; ?>
+			<?php if( !$nh_mobile_support->use_mobile_site ): nh_footer_links(); nh_footer_search(); endif; ?>
 		</div>
 		
 		<div class="line top"></div>
 		
 		<div class="body clearfix">
 
-			<?php if( $ns_mobile_support->use_mobile_site ): ns_footer_search(); endif; ?>
+			<?php if( $nh_mobile_support->use_mobile_site ): nh_footer_search(); endif; ?>
 		
-			<?php if( $ns_mobile_support->use_mobile_site ): ns_footer_links(); endif; ?>
+			<?php if( $nh_mobile_support->use_mobile_site ): nh_footer_links(); endif; ?>
 
-			<?php ns_footer_follow(); ?>
+			<?php nh_footer_follow(); ?>
 
-			<?php ns_footer_address(); ?>
+			<?php nh_footer_address(); ?>
 
 		</div>
 		
 		<?php
-		if( $ns_mobile_support->is_mobile ):
+		if( $nh_mobile_support->is_mobile ):
 		
 			?>
 			<div class="line bottom"></div>
 
 			<div class="bar bottom">
 				
-				<?php if( $ns_mobile_support->use_mobile_site ): ?>
+				<?php if( $nh_mobile_support->use_mobile_site ): ?>
 					<a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?use_mobile_site=0">Full Site</a> | Mobile Site
 				<?php else: ?>
 					Full Site | <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?use_mobile_site=1">Mobile Site</a>
@@ -121,7 +121,7 @@ function ns_footer_address()
 		endif;
 		?>
 			
-	<?php ns_use_widget( 'footer', 'bottom' ); ?>
+	<?php nh_use_widget( 'footer', 'bottom' ); ?>
 	</div><!-- #footer -->
 
 </div><!-- #footer-wrapper -->

@@ -6,20 +6,20 @@
  * @subpackage clas-exchange
  */
 
-//ns_print('page:taxonomy-connection-group.php');
-global $ns_config, $ns_template_vars;
+//nh_print('page:taxonomy-connection-group.php');
+global $nh_config, $nh_template_vars;
 
-$ns_template_vars = array();
-$ns_template_vars['content-type'] = 'listing';
-$ns_template_vars['page-title'] = single_term_title( '', false );
-$ns_template_vars['section'] = $ns_config->get_section( 'connection' );
+$nh_template_vars = array();
+$nh_template_vars['content-type'] = 'listing';
+$nh_template_vars['page-title'] = single_term_title( '', false );
+$nh_template_vars['section'] = $nh_config->get_section( 'connection' );
 
 $settings = Connections_ConnectionCustomPostType::get_settings();
-$ns_template_vars['listing-name'] = $settings['name']['group']['full_plural'];
-$ns_template_vars['description'] = '';
+$nh_template_vars['listing-name'] = $settings['name']['group']['full_plural'];
+$nh_template_vars['description'] = '';
 
-global $ns_clas_search_term;
-$ns_clas_search_term = $ns_template_vars['page-title'];
+global $nh_clas_search_term;
+$nh_clas_search_term = $nh_template_vars['page-title'];
 
-ns_get_template_part( 'standard-template' );
+nh_get_template_part( 'standard-template' );
 

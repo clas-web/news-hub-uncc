@@ -53,7 +53,7 @@
 		font-weight: normal;
 	}
 	
-	div.widget_ns-clas-search-widget {
+	div.widget_nh-clas-search-widget {
 		margin-bottom:20px;
 	}
 	
@@ -64,8 +64,8 @@
 		border:none !important;
 	}
 	
-	body.archive. #content.num-columns-1 .story,
-	body.search #content.num-columns-1 .story {
+	body.archive. #content.num-columnh-1 .story,
+	body.search #content.num-columnh-1 .story {
 		border-bottom:none !important;
 	}
 	
@@ -77,7 +77,7 @@
 		padding-top:25px;
 	}
 	
-	.widget_ns-clas-search-widget h2 {
+	.widget_nh-clas-search-widget h2 {
 		text-align: right;
 		font-family:Arial, sanserif;
 		font-size: 0.7em;

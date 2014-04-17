@@ -1,34 +1,34 @@
 
 
-<?php global $ns_config, $ns_mobile_support, $ns_template_vars; ?>
-<?php if( $ns_config->show_template_part('header') ): ?>
+<?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
+<?php if( $nh_config->show_template_part('header') ): ?>
 
 <?php 
-$header_wrapper_bg = ns_get_image_url( $ns_config->get_value('header', 'header-wrapper-bg', 'url') );
-$header_bg = ns_get_image_url( $ns_config->get_value('header', 'header-bg', 'url') );
+$header_wrapper_bg = nh_get_image_url( $nh_config->get_value('header', 'header-wrapper-bg', 'url') );
+$header_bg = nh_get_image_url( $nh_config->get_value('header', 'header-bg', 'url') );
 
-$title = $ns_config->get_value('header', 'title');
-$description = $ns_config->get_value('header', 'description');
+$title = $nh_config->get_value('header', 'title');
+$description = $nh_config->get_value('header', 'description');
 ?>
 
 <div id="header-wrapper" class="clearfix" style="background-image:url('<?php echo $header_wrapper_bg; ?>');">
 
 	<div id="header" class="clearfix">
-	<?php ns_use_widget( 'header', 'top' ); ?>
+	<?php nh_use_widget( 'header', 'top' ); ?>
 
 	<div class="masthead" style="background-image:url('<?php echo $header_bg; ?>');">
 	
-		<?php ns_image( $ns_config->get_value('header', 'logo') ); ?>
+		<?php nh_image( $nh_config->get_value('header', 'logo') ); ?>
 
-		<?php if( !$ns_mobile_support->use_mobile_site ): ?>
+		<?php if( !$nh_mobile_support->use_mobile_site ): ?>
 			
 			<?php 
-			$title_box_info = $ns_config->get_value('header', 'title-box'); 
+			$title_box_info = $nh_config->get_value('header', 'title-box'); 
 			?>
 			<div class="title-box-wrapper" style="height:100px">
 			<div class="title-box <?php echo $title['position']; ?>">
-				<?php echo ns_get_anchor( $title['url'], $title['text'], 'title', '<div>'.$title['text'].'</div>' ); ?>
-				<?php echo ns_get_anchor( $description['url'], $description['text'], 'description', '<div>'.$description['text'].'</div>' ); ?>
+				<?php echo nh_get_anchor( $title['url'], $title['text'], 'title', '<div>'.$title['text'].'</div>' ); ?>
+				<?php echo nh_get_anchor( $description['url'], $description['text'], 'description', '<div>'.$description['text'].'</div>' ); ?>
 			</div>
 			</div>
 		
@@ -47,7 +47,7 @@ $description = $ns_config->get_value('header', 'description');
 	
 	</div><!-- .masthead -->
 	
-	<?php ns_use_widget( 'header', 'bottom' ); ?>
+	<?php nh_use_widget( 'header', 'bottom' ); ?>
 	</div><!-- #header -->
 
 </div><!-- #header-wrapper -->

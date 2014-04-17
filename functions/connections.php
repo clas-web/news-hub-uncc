@@ -1,25 +1,25 @@
 <?php
 
 
-add_filter( 'posts_join',     'ns_clas_connections_alter_search_join',     9999, 2 );
-add_filter( 'posts_where',    'ns_clas_connections_alter_search_where',    9999, 2 );
-add_filter( 'posts_distinct', 'ns_clas_connections_alter_search_distinct', 9999, 2 );
-add_filter( 'posts_orderby',  'ns_clas_connections_alter_search_orderby',  9999, 2 );
+add_filter( 'posts_join',     'nh_clas_connections_alter_search_join',     9999, 2 );
+add_filter( 'posts_where',    'nh_clas_connections_alter_search_where',    9999, 2 );
+add_filter( 'posts_distinct', 'nh_clas_connections_alter_search_distinct', 9999, 2 );
+add_filter( 'posts_orderby',  'nh_clas_connections_alter_search_orderby',  9999, 2 );
 
 
-add_action( 'pre_get_posts', 'ns_clas_connections_alter_archive_order' );
+add_action( 'pre_get_posts', 'nh_clas_connections_alter_archive_order' );
 
 
 
-add_filter( 'pre_get_posts', 'ns_clas_connections_show_connections_as_posts' );
+add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
 
-function ns_clas_connections_show_connections_as_posts( $wp_query )
+function nh_clas_connections_show_connections_as_posts( $wp_query )
 {
 	if( is_admin() ) return $wp_query;
 
 	if( !$wp_query->is_search && $wp_query->is_main_query() )
 	{
-// 		ns_print($wp_query);
+// 		nh_print($wp_query);
 
 		if( $wp_query->get( 'page_id' ) ) return $wp_query;
 		
@@ -70,7 +70,7 @@ function ns_clas_connections_show_connections_as_posts( $wp_query )
 }
 
 
-function ns_clas_connections_alter_archive_order( $wp_query )
+function nh_clas_connections_alter_archive_order( $wp_query )
 {
     if( (!is_admin()) &&
     	(is_post_type_archive('connection') || 
@@ -91,7 +91,7 @@ function ns_clas_connections_alter_archive_order( $wp_query )
 /**
  * 
  */
-function ns_clas_connections_get_search_term( $search_term = null, $sql = true )
+function nh_clas_connections_get_search_term( $search_term = null, $sql = true )
 {
 	if( $search_term == null )
 	{
@@ -109,7 +109,7 @@ function ns_clas_connections_get_search_term( $search_term = null, $sql = true )
 /**
  * 
  */
-function ns_clas_connections_alter_search_join( $join, $wp_query )
+function nh_clas_connections_alter_search_join( $join, $wp_query )
 {
 	global $wpdb;
 
@@ -131,13 +131,13 @@ function ns_clas_connections_alter_search_join( $join, $wp_query )
 /**
  * 
  */
-function ns_clas_connections_alter_search_where( $where, $wp_query )
+function nh_clas_connections_alter_search_where( $where, $wp_query )
 {
 	global $wpdb;
 
 	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
-		$search_term = ns_clas_connections_get_search_term( $wp_query->query_vars['s'] );
+		$search_term = nh_clas_connections_get_search_term( $wp_query->query_vars['s'] );
 		$where = "
 		  AND ($wpdb->posts.post_type = 'connection' AND $wpdb->posts.post_status = 'publish')
 		  AND (
@@ -157,13 +157,13 @@ function ns_clas_connections_alter_search_where( $where, $wp_query )
 /**
  * 
  */
-function ns_clas_connections_alter_search_orderby( $order_by, $wp_query )
+function nh_clas_connections_alter_search_orderby( $order_by, $wp_query )
 {
 	global $wpdb;
 
 	if( $wp_query->is_search && $wp_query->is_main_query )
 	{
-		$search_term = ns_clas_connections_get_search_term( $wp_query->query_vars['s'] );
+		$search_term = nh_clas_connections_get_search_term( $wp_query->query_vars['s'] );
 		$order_by = "
 			CASE WHEN $wpdb->posts.post_title LIKE '%".$search_term."%' THEN 1000 ELSE 0 END +
 			CASE WHEN $wpdb->terms.name LIKE '%".$search_term."%' THEN 100 ELSE 0 END +
@@ -180,7 +180,7 @@ function ns_clas_connections_alter_search_orderby( $order_by, $wp_query )
 /**
  * 
  */
-function ns_clas_connections_alter_search_distinct()
+function nh_clas_connections_alter_search_distinct()
 {
 	global $wp_query;
 	$distinct = '';

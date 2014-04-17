@@ -1,6 +1,6 @@
 /*
-Theme Name:News Site CLAS
-Template:news-site-wordpress-theme
+Theme Name: News Hub UNCC
+Template: news-hub
 Theme URI:http://clas-pages.uncc.edu
 Description:A custom WordPress theme for the College of Liberal Arts & Science's online magazine.
 Version:2.0.0
@@ -445,11 +445,11 @@ Tags:
 		border-color:#debe76;
 	}
 	
-	#sidebar .widget_ns-clas-search-widget .screen-reader-text {
+	#sidebar .widget_nh-clas-search-widget .screen-reader-text {
 		display:none;
 	}
 	
-	#sidebar .widget_ns-clas-search-widget .textbox_wrapper {
+	#sidebar .widget_nh-clas-search-widget .textbox_wrapper {
 		height: 28px;
 		display: inline-block;
 		width: 189px;
@@ -458,12 +458,12 @@ Tags:
 		margin-right: -5px;
 	}
 	
-	#sidebar .widget_ns-clas-search-widget .textbox_wrapper input {
+	#sidebar .widget_nh-clas-search-widget .textbox_wrapper input {
 		width:95%;
 		height:28px;
 	}
 
-	#sidebar .widget_ns-clas-search-widget input[type=submit] {
+	#sidebar .widget_nh-clas-search-widget input[type=submit] {
 		background: #006633 url('images/google-search-button.png') no-repeat center center;
 		color: transparent;
 		border: none;
