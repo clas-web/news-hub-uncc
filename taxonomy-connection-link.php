@@ -16,11 +16,19 @@ $nh_template_vars['section'] = $nh_config->get_section( 'connection' );
 
 $settings = Connections_ConnectionCustomPostType::get_settings();
 $nh_template_vars['listing-name'] = $settings['name']['link']['full_plural'];
-//$nh_template_vars['description'] = 'Click <a href="'.get_search_link( single_term_title( '', false ) ).'">here</a> to perform a search.';
 $nh_template_vars['description'] = '';
 
 global $nh_clas_search_term;
 $nh_clas_search_term = $nh_template_vars['page-title'];
+
+if( class_exists('MultiTaxonomyBrowser') )
+{
+	$nh_template_vars['mt'] = array();
+	$nh_template_vars['mt']['type'] = MTType::FilteredArchive;
+	$nh_template_vars['mt']['post-types'] = array( 'connection' );
+	$nh_template_vars['mt']['taxonomies'] = array( 'connection-group', 'connection-link' );
+	$nh_template_vars['content-type'] = 'listing';
+}
 
 nh_get_template_part( 'standard-template' );
 

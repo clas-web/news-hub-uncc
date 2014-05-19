@@ -6,7 +6,7 @@
  * @subpackage clas-exchange
  */
 
-//nh_print('page:taxonomy-connection-group.php');
+// nh_print('PAGE:taxonomy-connection-group.php');
 global $nh_config, $nh_template_vars;
 
 $nh_template_vars = array();
@@ -20,6 +20,15 @@ $nh_template_vars['description'] = '';
 
 global $nh_clas_search_term;
 $nh_clas_search_term = $nh_template_vars['page-title'];
+
+if( class_exists('MultiTaxonomyBrowser') )
+{
+	$nh_template_vars['mt'] = array();
+	$nh_template_vars['mt']['type'] = MTType::FilteredArchive;
+	$nh_template_vars['mt']['post-types'] = array( 'connection' );
+	$nh_template_vars['mt']['taxonomies'] = array( 'connection-group', 'connection-link' );
+	$nh_template_vars['content-type'] = 'listing';
+}
 
 nh_get_template_part( 'standard-template' );
 

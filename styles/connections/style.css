@@ -107,3 +107,54 @@
 		line-height:1.5em;
 	}
 
+
+
+	/* ------------------------ */
+
+
+
+	.current-taxonomies {
+		margin-bottom:10px;
+	}
+	
+	.current-taxonomies,
+	.related-taxonomies {
+		border:solid 1px #bbb;
+		border-bottom:none;
+	}
+
+	.current-taxonomies > div,
+	.related-taxonomies > div {
+		padding:3px 0px;
+		background-color:#f6f6f6;
+		border-bottom:solid 1px #bbb;
+		padding:5px;
+	}
+	
+	.current-taxonomies > div.no-results {
+		display:none;
+	}
+
+	.current-taxonomies > div .title,
+	.related-taxonomies > div .title {
+		display:inline-block;
+		font-weight:bold;
+	}
+	
+	.current-taxonomies > div a, .current-taxonomies > div span,
+	.related-taxonomies > div a, .related-taxonomies > div span {
+		display:inline-block;
+		padding:2px 5px;
+	}
+
+	.current-taxonomies > div a:hover {
+		color: #993333;
+		text-decoration: line-through;
+	}
+	
+	.related-taxonomies {
+		margin-bottom:15px;
+	}
+	
+
+
