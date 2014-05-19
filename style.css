@@ -214,6 +214,7 @@ Tags:
 		padding: 0;
 		vertical-align: middle;
 		line-height: 2em;
+		float:right;
 	}
 
 	#content .searchform input[type="submit"]:hover {
@@ -471,6 +472,7 @@ Tags:
 		height: 30px;
 		border: solid 1px #006633;
 		padding: 0;
+		float:right;
 	}
 	
 	input[type=text] {
