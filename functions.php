@@ -10,7 +10,6 @@
 //========================================================================================
 //====================================================== Default filters and actions =====
 
-require_once( dirname(__FILE__).'/custom-post-types/connection/connection.php' );
 require_once( dirname(__FILE__).'/widgets/clas-buttons-widget.php' );
 require_once( dirname(__FILE__).'/widgets/search-widget.php' );
 
@@ -23,6 +22,8 @@ add_filter( 'frm_add_entry_meta', 'nh_clas_create_datetime_field', 9999 );
 add_filter( 'the_content', 'nh_clas_alter_formiable_content' );
 
 add_filter( 'init', 'nh_clas_add_site_functions' );
+
+add_filter( 'section-link', 'nh_get_section_link', 9999, 2 );
 
 
 //----------------------------------------------------------------------------------------
@@ -79,9 +80,8 @@ function nh_clas_format_excerpt_for_rss($excerpt)
 		
 		if( $category->slug == 'news' )
 		{		
-			$type = get_post_type( get_the_ID() );
-			$categories = nh_get_categories();
-			$section = $nh_config->get_section( $type, $categories, null, false, array('news') );
+			$taxonomies = nh_get_taxonomies( get_the_ID() );
+			$section = $nh_config->get_section( $type, $taxonomies, false, array('news') );
 			$story = $section->get_listing_story( get_post() );
 
 			ob_start();
@@ -167,5 +167,27 @@ function nh_get_anchor( $url, $title, $class = null, $contents = null )
 	return $anchor;
 }
 endif;
+
+
+
+//----------------------------------------------------------------------------------------
+// 
+//----------------------------------------------------------------------------------------
+function nh_get_section_link( $link, $section )
+{
+	if( $link !== null ) return $link;
+	
+	if( function_exists('mt_get_url') )
+	{
+		$link = mt_get_url(
+			MTType::CombinedArchive,
+			$section->post_types,
+			array_keys($section->taxonomies),
+			$section->taxonomies
+		);
+	}
+
+	return $link;
+}
 
 
