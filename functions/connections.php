@@ -93,15 +93,7 @@ function nh_clas_connections_alter_archive_order( $wp_query )
  */
 function nh_clas_connections_get_search_term( $search_term = null, $sql = true )
 {
-	if( $search_term == null )
-	{
-		$search_term = get_search_query();
-	}
-	
-	if( $sql )
-		$search_term = preg_replace("/[^A-Za-z0-9]/", '_', $search_term);
-		
-	return $search_term;	
+	return NH_ConnectionCustomPostType::get_search_term( $search_term, $sql );
 }
 
 

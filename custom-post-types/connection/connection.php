@@ -23,6 +23,19 @@ class NH_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 	}
 
 
+	public static function get_search_term($search_term = null, $sql = true )
+	{
+		if( $search_term == null )
+		{
+			$search_term = get_search_query();
+		}
+	
+		if( $sql )
+			$search_term = preg_replace("/[^A-Za-z0-9]/", '_', $search_term);
+		
+		return $search_term;	
+	}
+
 	public static function get_listing_story( $story, $post )
 	{
 		unset($story['description']['excerpt']);
@@ -31,7 +44,7 @@ class NH_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		
 		if( is_search() )
 		{
-			$search_term = nh_clas_connections_get_search_term( null, false );
+			$search_term = self::get_search_term( null, false );
 			
 			self::highlight_term( $story['title'], $search_term );
 
@@ -47,7 +60,7 @@ class NH_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 			
 			for( $i = 0; $i < count($search_content); $i++ )
 			{
-				if( !self::containh_term( $search_content[$i], $search_term ) )
+				if( !self::contains_term( $search_content[$i], $search_term ) )
 				{
 					array_splice( $search_content, $i, 1 ); $i--;
 				}
@@ -84,7 +97,7 @@ class NH_ConnectionCustomPostType extends Connections_ConnectionCustomPostType
 		return $story;
 	}
 	
-	private static function containh_term( &$text, $highlight_text )
+	private static function contains_term( &$text, $highlight_text )
 	{
 		if( preg_match( '/'.$highlight_text.'/i', $text ) === 1 ) return true;
 		return false;

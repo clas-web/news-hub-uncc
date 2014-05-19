@@ -40,7 +40,7 @@ function nh_clas_buttons()
 			
 				$stories = $section->get_stories( 'sidebar' );
 				?>
-				<div class="section-box <?php $section_key; ?>-section <?php echo $section->thumbnail_image; ?>-image">
+				<div class="section-box <?php echo $section_key; ?>-section <?php echo $section->thumbnail_image; ?>-image">
 
 					<h2>
 					<?php echo nh_get_anchor( 
