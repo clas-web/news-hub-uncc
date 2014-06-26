@@ -64,8 +64,8 @@
 		border:none !important;
 	}
 	
-	body.archive. #content.num-columnh-1 .story,
-	body.search #content.num-columnh-1 .story {
+	body.archive. #content.num-columns-1 .story,
+	body.search #content.num-columns-1 .story {
 		border-bottom:none !important;
 	}
 	
@@ -115,6 +115,11 @@
 
 	.current-taxonomies {
 		margin-bottom:10px;
+		display:none;
+	}
+
+	.mt-archive .current-taxonomies {
+		display:block;
 	}
 	
 	.current-taxonomies,
@@ -155,6 +160,24 @@
 	.related-taxonomies {
 		margin-bottom:15px;
 	}
+	
+	.related-taxonomies .more-link {
+		display:inline-block;
+		cursor:pointer;
+		float:right;
+		background-color:#ccc;
+		border-radius:5px;
+		margin-right:5px;
+		padding:3px 5px;
+		font-size:0.8em;
+		line-height:1.1em;
+		color:#777;
+	}
+
+	.related-taxonomies .more-link:hover {
+		background-color:#999;
+		color:#eee;
+	}	
 	
 
 

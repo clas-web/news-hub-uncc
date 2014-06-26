@@ -54,7 +54,7 @@ else
 		<div class="column column-2">
 		
 			<?php $count = 1; ?>
-			<div class="connection-links columnh-<?php echo count($links); ?> clearfix">
+			<div class="connection-links columns-<?php echo count($links); ?> clearfix">
 				<h5><?php echo $connection_links_name; ?></h5>
 				<?php foreach( $links as $link_column ): ?>
 				<div class="column column-<?php echo $count; ?>">

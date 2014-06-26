@@ -2,17 +2,15 @@
 
 <?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
 <?php
-$options = $nh_config->get_admin_options( 'sidebar' );
-
 function nh_clas_buttons()
 {
 	global $nh_config;
 	
 	?>
 	<div id="clas-buttons">
-		<?php nh_image( $nh_config->get_value('sidebar', 'clas-connections') ); ?>
-		<?php nh_image( $nh_config->get_value('sidebar', 'thinking-matters') ); ?>
-		<?php nh_image( $nh_config->get_value('sidebar', 'exchange-online') ); ?>
+		<?php nh_image( $nh_config->get_value( 'sidebar', 'clas-connections' ) ); ?>
+		<?php nh_image( $nh_config->get_value( 'sidebar', 'thinking-matters' ) ); ?>
+		<?php nh_image( $nh_config->get_value( 'sidebar', 'exchange-online' ) ); ?>
 	</div>
 
 	<?php
@@ -25,7 +23,7 @@ function nh_clas_buttons()
 	<div id="sidebar" class="clearfix">
 	<?php nh_use_widget( 'sidebar', 'top' ); ?>
 
-	<?php foreach( $options['sections'] as $column_name => $sections ): ?>
+	<?php foreach( $nh_config->get_value( 'sidebar-sections' ) as $column_name => $sections ): ?>
 
 		<div class="column <?php echo 'front-page-'.$column_name; ?>">
 
@@ -75,11 +73,11 @@ function nh_clas_buttons()
 			endforeach; // foreach( $current_column as $section_key )
 		?>
 	
-		<?php if( $mobile_support->use_mobile_site ): exchange_clas_buttons(); endif; ?>
+		<?php if( $nh_mobile_support->use_mobile_site ): exchange_clas_buttons(); endif; ?>
 
 		</div><!-- .column -->
 
-	<?php endforeach; // foreach( $options['sections'] as $column_name => $sections ) ?>
+	<?php endforeach; // foreach( $nh_config->get_value( 'sidebar-sections' ) as $column_name => $sections ) ?>
 	
 	<?php nh_use_widget( 'sidebar', 'bottom' ); ?>
 	</div><!-- #sidebar -->

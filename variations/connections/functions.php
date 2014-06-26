@@ -13,6 +13,14 @@ add_action( 'pre_get_posts', 'nh_clas_connections_alter_archive_order' );
 
 add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
 
+
+add_filter( 'enqueue_scripts', 'nh_enqueue_mt_script' );
+
+function nh_enqueue_mt_script()
+{
+	wp_enqueue_script( 'mt-script', dirname(__FILE__).'/scripts/mt-more-tags.js' );
+}
+
 function nh_clas_connections_show_connections_as_posts( $wp_query )
 {
 	if( is_admin() ) return $wp_query;

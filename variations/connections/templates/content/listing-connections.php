@@ -1,5 +1,5 @@
 
-<?php //nh_print('listing.php-connections'); ?>
+<?php // nh_print('listing.php-connections'); ?>
 <?php global $nh_config, $nh_mobile_support, $nh_template_vars, $wp_query; ?>
 <?php $nh_section = $nh_template_vars['section']; ?>
 
@@ -101,20 +101,7 @@ else:
 	//--------------------------------------------------------------------------------
 	// Page Navigation.
 	//--------------------------------------------------------------------------------
-	if( $wp_query->max_num_pages > 1 ):
-
-		?>
-		<div id="page-navigation" class="clearfix" role="navigation">
-			<div class="nav-next">
-				<?php next_posts_link( $nh_section->get_listing_label('next') ); ?>
-			</div>
-			<div class="nav-prev">
-				<?php previous_posts_link( $nh_section->get_listing_label('prev') ); ?>
-			</div>
-		</div>
-		<?php
-
-	endif; // if( $wp_query->max_num_pages > 1 )
+	nh_get_template_part( 'pagination', 'other', $key );
 
 endif; // if( !have_posts() )
 ?>

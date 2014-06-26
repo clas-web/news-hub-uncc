@@ -24,7 +24,7 @@ function nh_footer_links()
 	
 		<ul> 
 			<?php if( !$nh_mobile_support->use_mobile_site ): ?>
-				<li><?php nh_image( $nh_config->get_value('footer', 'uncc-logo') ); ?></li>
+				<li><?php nh_image( $nh_config->get_value( 'footer', 'uncc-logo' ) ); ?></li>
 			<?php endif; ?>
 			<li><a href="http://www.unccharlottealerts.com" title="Alerts and Advisories at UNC Charlotte" target="_blank">Alerts</a></li> 
 			<li><a href="http://jobs.uncc.edu" title="Jobs at UNC Charlotte">Jobs</a></li> 
@@ -44,11 +44,11 @@ function nh_footer_follow()
 	?>
 	<div class="follow"> 
 		<div>Follow UNC Charlotte</div> 
-		<span class="tm-facebook social-icons"><?php nh_image( $nh_config->get_value('footer', 'facebook') ); ?></span>  
-		<span class="tm-blog social-icons"><?php nh_image( $nh_config->get_value('footer', 'blogger') ); ?></span> 
-		<span class="tm-twitter social-icons"><?php nh_image( $nh_config->get_value('footer', 'twitter') ); ?></span> 
-		<span class="tm-flickr social-icons"><?php nh_image( $nh_config->get_value('footer', 'flickr') ); ?></span> 
-		<span class="tm-youtube social-icons"><?php nh_image( $nh_config->get_value('footer', 'youtube') ); ?></span> 
+		<span class="tm-facebook social-icons"><?php nh_image( $nh_config->get_value( 'footer', 'facebook' ) ); ?></span>  
+		<span class="tm-blog social-icons"><?php nh_image( $nh_config->get_value( 'footer', 'blogger' ) ); ?></span> 
+		<span class="tm-twitter social-icons"><?php nh_image( $nh_config->get_value( 'footer', 'twitter' ) ); ?></span> 
+		<span class="tm-flickr social-icons"><?php nh_image( $nh_config->get_value( 'footer', 'flickr' ) ); ?></span> 
+		<span class="tm-youtube social-icons"><?php nh_image( $nh_config->get_value( 'footer', 'youtube' ) ); ?></span> 
 	</div>  <!-- .follow --> 
 	<?php
 }

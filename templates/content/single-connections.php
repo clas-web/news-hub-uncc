@@ -1,9 +1,9 @@
 
 
-<?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
+<?php global $nh_config, $nh_mobile_support, $nh_template_vars, $post; ?>
 <?php
 $section = $nh_template_vars['section'];
-$story = $nh_template_vars['story'];
+$story = $section->get_single_story( $post );
 $settings = Connections_ConnectionCustomPostType::get_settings();
 $connection_links_name = $settings['name']['link']['full_plural'];
 
@@ -20,7 +20,7 @@ else
 	$links = array( $links );
 }
 
-//nh_print($story);
+// nh_print($story);
 ?>
 
 <div class="story <?php echo $section->key; ?>-section <?php echo $section->thumbnail_image; ?>-image clearfix">
@@ -54,7 +54,7 @@ else
 		<div class="column column-2">
 		
 			<?php $count = 1; ?>
-			<div class="connection-links columnh-<?php echo count($links); ?> clearfix">
+			<div class="connection-links columns-<?php echo count($links); ?> clearfix">
 				<h5><?php echo $connection_links_name; ?></h5>
 				<?php foreach( $links as $link_column ): ?>
 				<div class="column column-<?php echo $count; ?>">
@@ -69,6 +69,12 @@ else
 		</div><!-- .column-2 -->
 	
 	</div><!-- .details -->
+	
+	<div class="post-contents">
+	
+		<?php echo $story['description']['text']; ?>
+	
+	</div>
 	
 </a>
 </div><!-- .story -->

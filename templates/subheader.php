@@ -1,7 +1,7 @@
 
 
 <?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
-<?php if( $nh_config->show_template_part('subheader') ): ?>
+<?php if( $nh_config->show_template_part( 'subheader' ) ): ?>
 
 
 <div id="subheader-wrapper" class="clearfix">
@@ -11,14 +11,14 @@
 	
 	
 	<?php
-	$image = $nh_config->get_value('subheader', 'image');
+	$image = $nh_config->get_value( 'subheader', 'image' );
 	$image['link'] = get_home_url();
 	nh_image( $image );
 	?>
 
 	<div id="social-media-buttons">
-		<?php nh_image( $nh_config->get_value('subheader', 'facebook') ); ?>
-		<?php nh_image( $nh_config->get_value('subheader', 'twitter') ); ?>
+		<?php nh_image( $nh_config->get_value( 'subheader', 'facebook' ) ); ?>
+		<?php nh_image( $nh_config->get_value( 'subheader', 'twitter' ) ); ?>
 	</div>
 	
 

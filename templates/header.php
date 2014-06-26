@@ -1,14 +1,17 @@
 
 
 <?php global $nh_config, $nh_mobile_support, $nh_template_vars; ?>
-<?php if( $nh_config->show_template_part('header') ): ?>
+<?php if( $nh_config->show_template_part( 'header' ) ): ?>
 
 <?php 
-$header_wrapper_bg = nh_get_image_url( $nh_config->get_value('header', 'header-wrapper-bg', 'url') );
-$header_bg = nh_get_image_url( $nh_config->get_value('header', 'header-bg', 'url') );
+$header_wrapper_bg = nh_get_image_url( $nh_config->get_value( 'header', 'header-wrapper-bg', 'path' ) );
+$header_bg = nh_get_image_url( $nh_config->get_value( 'header', 'header-bg', 'path' ) );
 
-$title = $nh_config->get_value('header', 'title');
-$description = $nh_config->get_value('header', 'description');
+$title = $nh_config->get_value( 'header', 'title' );
+if( isset($title['use-site-link']) && ($title['use-site-link'] === true) ) $title['link'] = get_home_url();
+
+$description = $nh_config->get_value( 'header', 'description' );
+if( isset($description['use-site-link']) && ($description['use-site-link'] === true) ) $description['link'] = get_home_url();
 ?>
 
 <div id="header-wrapper" class="clearfix" style="background-image:url('<?php echo $header_wrapper_bg; ?>');">
@@ -18,17 +21,14 @@ $description = $nh_config->get_value('header', 'description');
 
 	<div class="masthead" style="background-image:url('<?php echo $header_bg; ?>');">
 	
-		<?php nh_image( $nh_config->get_value('header', 'logo') ); ?>
+		<?php nh_image( $nh_config->get_value( 'header', 'logo' ) ); ?>
 
 		<?php if( !$nh_mobile_support->use_mobile_site ): ?>
 			
-			<?php 
-			$title_box_info = $nh_config->get_value('header', 'title-box'); 
-			?>
 			<div class="title-box-wrapper" style="height:100px">
 			<div class="title-box <?php echo $title['position']; ?>">
-				<?php echo nh_get_anchor( $title['url'], $title['text'], 'title', '<div>'.$title['text'].'</div>' ); ?>
-				<?php echo nh_get_anchor( $description['url'], $description['text'], 'description', '<div>'.$description['text'].'</div>' ); ?>
+				<?php echo nh_get_anchor( $title['link'], $title['text'], 'title', '<div>'.$title['text'].'</div>' ); ?>
+				<?php echo nh_get_anchor( $description['link'], $description['text'], 'description', '<div>'.$description['text'].'</div>' ); ?>
 			</div>
 			</div>
 		
