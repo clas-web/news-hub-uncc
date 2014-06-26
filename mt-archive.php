@@ -6,7 +6,7 @@
  * @subpackage clas-exchange
  */
 
-// nh_print('PAGE:mt-archive.php');
+// nh_print( 'PAGE:mt-archive.php' );
 global $nh_config, $nh_template_vars;
 
 $nh_template_vars = array();

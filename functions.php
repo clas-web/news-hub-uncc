@@ -21,20 +21,13 @@ add_filter( 'the_excerpt_rss', 'nh_clas_format_excerpt_for_rss' );
 add_filter( 'frm_add_entry_meta', 'nh_clas_create_datetime_field', 9999 );
 add_filter( 'the_content', 'nh_clas_alter_formiable_content' );
 
-add_filter( 'init', 'nh_clas_add_site_functions' );
-
 add_filter( 'section-link', 'nh_get_section_link', 9999, 2 );
+
 
 
 //----------------------------------------------------------------------------------------
 // 
 //----------------------------------------------------------------------------------------
-function nh_clas_add_site_functions()
-{
-	$filepath = nh_get_theme_file_path('functions/'.NH_BLOG_NAME.'.php');
-	if( $filepath ) require_once( $filepath );
-}
-
 function nh_clas_get_link_target( $target, $link, $post )
 {
 	if( strpos( $link, 'uncc.edu' ) === false )

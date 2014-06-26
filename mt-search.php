@@ -6,7 +6,7 @@
  * @subpackage clas-exchange
  */
 
-//nh_print('page:taxonomy-connection-group.php');
+// nh_print( 'PAGE:taxonomy-connection-group.php' );
 global $nh_config, $nh_template_vars;
 
 $nh_template_vars = array();

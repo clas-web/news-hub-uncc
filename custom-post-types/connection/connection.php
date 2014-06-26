@@ -1,12 +1,7 @@
 <?php
 
-//echo 'custom-post-types/connection/connection.php';
-
-if( !class_exists('Connections_ConnectionCustomPostType') )
-	return;
+if( !class_exists('Connections_ConnectionCustomPostType') ) return;
 	
-
-//echo 'NH_ConnectionCustomPostType';
 
 add_filter( 'nh-connection-featured-story', array('NH_ConnectionCustomPostType','get_featured_story'), 99, 2 );
 add_filter( 'nh-connection-listing-story', array('NH_ConnectionCustomPostType','get_listing_story'), 99, 2 );
