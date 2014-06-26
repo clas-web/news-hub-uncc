@@ -214,19 +214,14 @@ class NH_InTheNewsCustomPostType
 	 */
 	public static function alter_in_the_news_query( $wp_query )
 	{
-		if( $wp_query->query['post_type'] == 'in-the-news' )
+		if( !isset($wp_query->query['post_type']) ) return;
+		if( is_string($wp_query->query['post_type']) && $wp_query->query['post_type'] !== 'in-the-news' ) return;
+		if( is_array($wp_query->query['post_type']) && $wp_query->query['post_type'] !== array('in-the-news') ) return;
+		
+		if( is_category('news') && !isset($wp_query->query_vars['section']) )
 		{
-			/*
-			$wp_query->query_vars['meta_key'] = 'publication-date';
-			$wp_query->query_vars['orderby'] = 'meta_value';
-			$wp_query->query_vars['order'] = 'DESC';
-			*/
-			
-			if( is_category('news') && !isset($wp_query->query_vars['section']) )
-			{
-				$wp_query->query_vars['posts_per_page'] = 20;
-			}		
-		}
+			$wp_query->query_vars['posts_per_page'] = 20;
+		}		
 	}
 
 	/**
@@ -251,11 +246,11 @@ class NH_InTheNewsCustomPostType
 	 */
 	public static function alter_in_the_news_groupby( $groupby, $wp_query )
 	{
-		if( $wp_query->query_vars['post_type'] === 'in-the-news' )
-		{
-			global $wpdb;
-			$groupby = "$wpdb->posts.ID";
-		}
+		if( !isset($wp_query->query['post_type']) ) return $groupby;
+		if( $wp_query->query['post_type'] !== 'in-the-news' && $wp_query->query['post_type'] !== array('in-the-news') ) return $groupby;
+
+		global $wpdb;
+		$groupby = "$wpdb->posts.ID";
 		return $groupby;
 	}
 
@@ -264,11 +259,11 @@ class NH_InTheNewsCustomPostType
 	 */
 	public static function alter_in_the_news_join( $join, $wp_query )
 	{
-		if( $wp_query->query_vars['post_type'] === 'in-the-news' )
-		{
-			global $wpdb;
-			$join = "LEFT JOIN (SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = 'publication-date') ttable ON ($wpdb->posts.ID = ttable.post_id)";
-		}
+		if( !isset($wp_query->query['post_type']) ) return $join;
+		if( $wp_query->query['post_type'] !== 'in-the-news' && $wp_query->query['post_type'] !== array('in-the-news') ) return $join;
+
+		global $wpdb;
+		$join = "LEFT JOIN (SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = 'publication-date') ttable ON ($wpdb->posts.ID = ttable.post_id)";
 		return $join;
 	}
 
@@ -277,11 +272,11 @@ class NH_InTheNewsCustomPostType
 	 */
 	public static function alter_in_the_news_orderby( $orderby, $wp_query )
 	{
-		if( $wp_query->query_vars['post_type'] === 'in-the-news' )
-		{
-			global $wpdb;
-			$orderby = "ISNULL(publication_date) ASC, publication_date DESC, post_date DESC";
-		}
+		if( !isset($wp_query->query['post_type']) ) return $orderby;
+		if( $wp_query->query['post_type'] !== 'in-the-news' && $wp_query->query['post_type'] !== array('in-the-news') ) return $orderby;
+
+		global $wpdb;
+		$orderby = "ISNULL(publication_date) ASC, publication_date DESC, post_date DESC";
 		return $orderby;
 	}
 
@@ -290,11 +285,11 @@ class NH_InTheNewsCustomPostType
 	 */
 	public static function alter_in_the_news_fields( $fields, $wp_query )
 	{
-		if( $wp_query->query_vars['post_type'] === 'in-the-news' )
-		{
-			global $wpdb;
-			$fields = "$wpdb->posts.*, ttable.meta_value AS publication_date";
-		}
+		if( !isset($wp_query->query['post_type']) ) return $fields;
+		if( $wp_query->query['post_type'] !== 'in-the-news' && $wp_query->query['post_type'] !== array('in-the-news') ) return $fields;
+
+		global $wpdb;
+		$fields = "$wpdb->posts.*, ttable.meta_value AS publication_date";
 		return $fields;
 	}
 
