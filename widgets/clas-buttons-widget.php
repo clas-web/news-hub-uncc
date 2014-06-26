@@ -11,7 +11,7 @@ class NH_ClasButtonsWidget extends WP_Widget
 		array(
 			'title' => 'CLAS Connections',
 			'link' => 'http://clasconnections.uncc.edu',
-			'url' => '/images/button-clas-connections-nb.png',
+			'path' => '/images/button-clas-connections-nb.png',
 		),
 	);
 	
@@ -19,7 +19,7 @@ class NH_ClasButtonsWidget extends WP_Widget
 		array(
 			'title' => 'Thinking Matters',
 			'link' => 'http://thinkingmatters.uncc.edu',
-			'url' => '/images/button-thinking-matters-nb.png',
+			'path' => '/images/button-thinking-matters-nb.png',
 		),
 	);
 	
@@ -27,12 +27,12 @@ class NH_ClasButtonsWidget extends WP_Widget
 		array(
 			'title' => 'Exchange Online',
 			'link' => 'http://exchange.uncc.edu',
-			'url' => '/images/button-exchange-online-nb.png',
+			'path' => '/images/button-exchange-online-nb.png',
 		),
 		array(
 			'title' => 'Post to Exchange Online',
 			'link' => 'http://exchange.uncc.edu/post',
-			'url' => '/images/button-exchange-online-post-nb.png',
+			'path' => '/images/button-exchange-online-post-nb.png',
 		),
 	);
 
@@ -75,13 +75,13 @@ class NH_ClasButtonsWidget extends WP_Widget
 			
 			<?php 
 			
-			self::$CLAS_CONNECTIONS[$cc]['key'] = 'clas-connections';
+			self::$CLAS_CONNECTIONS[$cc]['class'] = 'clas-connections';
 			nh_image( self::$CLAS_CONNECTIONS[$cc] );
 
-			self::$THINKING_MATTERS[$tm]['key'] = 'thinking-matters';
+			self::$THINKING_MATTERS[$tm]['class'] = 'thinking-matters';
 			nh_image( self::$THINKING_MATTERS[$tm] );
 
-			self::$EXCHANGE_ONLINE[$eo]['key'] = 'exchange-online';
+			self::$EXCHANGE_ONLINE[$eo]['class'] = 'exchange-online';
 			nh_image( self::$EXCHANGE_ONLINE[$eo] );
 			
 			?>
@@ -113,7 +113,7 @@ class NH_ClasButtonsWidget extends WP_Widget
 		<?php
 		for( $i = 0; $i < count(self::$CLAS_CONNECTIONS); $i++ )
 		{
-			self::$CLAS_CONNECTIONS[$i]['key'] = 'clas-connections';
+			self::$CLAS_CONNECTIONS[$i]['class'] = 'clas-connections';
 			unset(self::$CLAS_CONNECTIONS[$i]['link']);
 			?><input type="radio" name="<?php echo $this->get_field_name( 'clas-connections' ); ?>" value="<?php echo $i; ?>" <?php if($i==$cc) echo 'checked'; ?>><?php
 			nh_image( self::$CLAS_CONNECTIONS[$i] );
@@ -127,7 +127,7 @@ class NH_ClasButtonsWidget extends WP_Widget
 		<?php
 		for( $i = 0; $i < count(self::$THINKING_MATTERS); $i++ )
 		{
-			self::$THINKING_MATTERS[$i]['key'] = 'thinking-matters';
+			self::$THINKING_MATTERS[$i]['class'] = 'thinking-matters';
 			unset(self::$THINKING_MATTERS[$i]['link']);
 			?><input type="radio" name="<?php echo $this->get_field_name( 'thinking-matters' ); ?>" value="<?php echo $i; ?>" <?php if($i==$tm) echo 'checked'; ?>><?php
 			nh_image( self::$THINKING_MATTERS[$i] );
@@ -141,7 +141,7 @@ class NH_ClasButtonsWidget extends WP_Widget
 		<?php
 		for( $i = 0; $i < count(self::$EXCHANGE_ONLINE); $i++ )
 		{
-			self::$EXCHANGE_ONLINE[$i]['key'] = 'exchange-online';
+			self::$EXCHANGE_ONLINE[$i]['class'] = 'exchange-online';
 			unset(self::$EXCHANGE_ONLINE[$i]['link']);
 			?><input type="radio" name="<?php echo $this->get_field_name( 'exchange-online' ); ?>" value="<?php echo $i; ?>" <?php if($i==$eo) echo 'checked'; ?>><?php
 			nh_image( self::$EXCHANGE_ONLINE[$i] );
