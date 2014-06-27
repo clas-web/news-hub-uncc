@@ -7,11 +7,8 @@
 $header_wrapper_bg = nh_get_image_url( $nh_config->get_value( 'header', 'header-wrapper-bg', 'path' ) );
 $header_bg = nh_get_image_url( $nh_config->get_value( 'header', 'header-bg', 'path' ) );
 
-$title = $nh_config->get_value( 'header', 'title' );
-if( isset($title['use-site-link']) && ($title['use-site-link'] === true) ) $title['link'] = get_home_url();
-
-$description = $nh_config->get_value( 'header', 'description' );
-if( isset($description['use-site-link']) && ($description['use-site-link'] === true) ) $description['link'] = get_home_url();
+$title = $nh_config->get_text_data( 'header', 'title' );
+$description = $nh_config->get_text_data( 'header', 'description' );
 ?>
 
 <div id="header-wrapper" class="clearfix" style="background-image:url('<?php echo $header_wrapper_bg; ?>');">
@@ -21,7 +18,7 @@ if( isset($description['use-site-link']) && ($description['use-site-link'] === t
 
 	<div class="masthead" style="background-image:url('<?php echo $header_bg; ?>');">
 	
-		<?php nh_image( $nh_config->get_value( 'header', 'logo' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'header', 'logo' ) ); ?>
 
 		<?php if( !$nh_mobile_support->use_mobile_site ): ?>
 			

@@ -11,14 +11,14 @@
 	
 	
 	<?php
-	$image = $nh_config->get_value( 'subheader', 'image' );
+	$image = $nh_config->get_image_data( 'subheader', 'image' );
 	$image['link'] = get_home_url();
 	nh_image( $image );
 	?>
 
 	<div id="social-media-buttons">
-		<?php nh_image( $nh_config->get_value( 'subheader', 'facebook' ) ); ?>
-		<?php nh_image( $nh_config->get_value( 'subheader', 'twitter' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'subheader', 'facebook' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'subheader', 'twitter' ) ); ?>
 	</div>
 	
 

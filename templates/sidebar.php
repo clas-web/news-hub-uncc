@@ -8,9 +8,9 @@ function nh_clas_buttons()
 	
 	?>
 	<div id="clas-buttons">
-		<?php nh_image( $nh_config->get_value( 'sidebar', 'clas-connections' ) ); ?>
-		<?php nh_image( $nh_config->get_value( 'sidebar', 'thinking-matters' ) ); ?>
-		<?php nh_image( $nh_config->get_value( 'sidebar', 'exchange-online' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'sidebar', 'clas-connections' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'sidebar', 'thinking-matters' ) ); ?>
+		<?php nh_image( $nh_config->get_image_data( 'sidebar', 'exchange-online' ) ); ?>
 	</div>
 
 	<?php
