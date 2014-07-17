@@ -73,7 +73,7 @@ function nh_clas_buttons()
 			endforeach; // foreach( $current_column as $section_key )
 		?>
 	
-		<?php if( $nh_mobile_support->use_mobile_site ): exchange_clas_buttons(); endif; ?>
+		<?php if( $nh_mobile_support->use_mobile_site ): nh_clas_buttons(); endif; ?>
 
 		</div><!-- .column -->
 

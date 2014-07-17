@@ -143,11 +143,15 @@
 		margin-top:5px;
 	}
 
-	img.exchange-online-header {
-		width:85%;
-		margin-left:5px;
+	img.subheader-image {
+		width:100%;
+		margin:0px 5px;
 	}
 
+	#social-media-buttons {
+		margin:0px 5px;
+	}
+	
 	#social-media-buttons img {
 		border-radius:2px;
 	}
@@ -253,6 +257,10 @@
 	.story.landscape-image .description {
 		overflow:hidden;
 	}
+	
+	.story.in-the-news-section h3 {
+		margin:0px 5px;
+	}
 
 	
 /****************************************************************************************
@@ -264,7 +272,7 @@
 		color:#666;
 	}
 
-	.story.in-the-news-section {
+	#sidebar .story.in-the-news-section {
 		padding:10px 5px;
 		margin-left:-5px;
 		margin-right:-5px;
@@ -288,7 +296,7 @@
 
 	#secondary iframe.twitter-timeline:after {
 		content:'</div>';
-	}
+	}	
 
 /****************************************************************************************
  * Footer
