@@ -1,5 +1,6 @@
 
 
+<?php //nh_print('single-connections.php'); ?>
 <?php global $nh_config, $nh_mobile_support, $nh_template_vars, $post; ?>
 <?php
 $section = $nh_template_vars['section'];

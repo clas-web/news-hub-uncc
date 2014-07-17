@@ -81,7 +81,7 @@ else:
 
 			<?php
 			
-			//nh_print( 'listing : story : '.$key );
+// 			nh_print( 'listing : story : '.$key );
 			$nh_template_vars['story'] = $story;
 			nh_get_template_part( 'listing', 'story', $key );
 	
