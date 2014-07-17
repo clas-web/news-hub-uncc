@@ -177,7 +177,18 @@
 	.related-taxonomies .more-link:hover {
 		background-color:#999;
 		color:#eee;
-	}	
+	}
+	
+	.related-taxonomies .results:before,
+	.related-taxonomies .results:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+	
+	.related-taxonomies .results {
+		zoom:1;
+	}
 	
 
 

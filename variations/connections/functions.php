@@ -11,14 +11,14 @@ add_action( 'pre_get_posts', 'nh_clas_connections_alter_archive_order' );
 
 
 
-add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
+// add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
 
 
-add_filter( 'enqueue_scripts', 'nh_enqueue_mt_script' );
+add_filter( 'wp_enqueue_scripts', 'nh_enqueue_mt_script' );
 
 function nh_enqueue_mt_script()
 {
-	wp_enqueue_script( 'mt-script', dirname(__FILE__).'/scripts/mt-more-tags.js' );
+	nh_enqueue_file( 'script', 'mt-more-tags', 'variations/connections/scripts/mt-more-tags.js' );
 }
 
 function nh_clas_connections_show_connections_as_posts( $wp_query )

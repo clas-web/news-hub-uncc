@@ -75,5 +75,7 @@
 		padding-top: 15px;
 	}
 	
-	
+	#content #searchsubmit {
+		margin:0;
+	}
 	
