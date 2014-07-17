@@ -8,9 +8,9 @@ function nh_footer_search()
 {
 	?>
 	<div class="search">
-		<form action="http://search.uncc.edu/" method="get" id="uncc-searchform" class="searchform">
+		<form action="http://search.uncc.edu/website" method="get" id="uncc-searchform" class="searchform">
 			<script>var uncc_search_used = false;</script>
-			<input type="text" name="s" id="footer-search" size="30" value="<?php if( is_search() ) { the_search_query(); } else { echo "Search UNCC"; } ?>" onfocus="if (!uncc_search_used) { this.value = ''; uncc_search_used = true; }" /><input type="image" name="op" value="Search" id="edit-submit" alt="search" title="Search this site" src="<?php print get_stylesheet_directory_uri() ?>/images/search-button.png">
+			<input type="text" name="q" id="footer-search" size="30" value="<?php if( is_search() ) { the_search_query(); } else { echo "Search UNCC"; } ?>" onfocus="if (!uncc_search_used) { this.value = ''; uncc_search_used = true; }" /><input type="image" name="op" value="Search" id="edit-submit" alt="search" title="Search this site" src="<?php print get_stylesheet_directory_uri() ?>/images/search-button.png">
 		</form>
 	</div>
 	<?php
@@ -103,7 +103,7 @@ function nh_footer_address()
 		</div>
 		
 		<?php
-		if( $nh_mobile_support->is_mobile ):
+		if( $nh_mobile_support->is_mobile || $nh_mobile_support->use_mobile_site ):
 		
 			?>
 			<div class="line bottom"></div>
@@ -111,9 +111,9 @@ function nh_footer_address()
 			<div class="bar bottom">
 				
 				<?php if( $nh_mobile_support->use_mobile_site ): ?>
-					<a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?use_mobile_site=0">Full Site</a> | Mobile Site
+					<a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?full">Full Site</a> | Mobile Site
 				<?php else: ?>
-					Full Site | <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?use_mobile_site=1">Mobile Site</a>
+					Full Site | <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?mobile">Mobile Site</a>
 				<?php endif; ?>
 			</div>
 			<?php
