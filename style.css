@@ -342,7 +342,7 @@ Tags:
 	
 	.story .image {
 		text-align:center;
-		background-color:#ccc;
+		/* background-color:#ccc; */
 	}
 	
 	.story .image img {
@@ -669,6 +669,13 @@ body.page #content .story .description  {
 body.page #content .story .description ul,
 body.page #content .story .description ol {
 	line-height:1.2em;
+}
+
+.confidential-warning-message {
+	background-color:#FFF6DC;
+	border:solid 1px #F0CB00;
+	padding:10px;
+	margin-bottom:10px;
 }
 
 	
