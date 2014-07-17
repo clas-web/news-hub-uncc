@@ -52,8 +52,9 @@ function thinkingmatters_get_story_data( &$story, $post )
 function thinkingmatters_get_byline( $post )
 {
 	$date = date( 'F d, Y', strtotime($post->post_modified) );
+	
 	$author = get_the_author_meta( 'display_name', $post->post_author );
-	$url = get_the_author_meta( 'user_url', $post->post_author );
+	$url = get_author_posts_url($post->post_author);
 	
 //	return $date.' by '.$author;
 	return $date.' by <a href="'.$url.'" title="Posts by '.$author.'">'.$author.'</a>';
