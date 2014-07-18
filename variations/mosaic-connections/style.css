@@ -177,6 +177,7 @@
 	.related-taxonomies .more-link:hover {
 		background-color:#999;
 		color:#eee;
+<<<<<<< HEAD
 	}
 	
 	.related-taxonomies .results:before,
@@ -189,6 +190,9 @@
 	.related-taxonomies .results {
 		zoom:1;
 	}
+=======
+	}	
+>>>>>>> FETCH_HEAD
 	
 
 
