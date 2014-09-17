@@ -110,10 +110,11 @@ function nh_footer_address()
 
 			<div class="bar bottom">
 				
+				<?php $exploded_uri = explode('?', $_SERVER['REQUEST_URI'], 2); ?>
 				<?php if( $nh_mobile_support->use_mobile_site ): ?>
-					<a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?full">Full Site</a> | Mobile Site
+					<a href="<?php echo $exploded_uri[0]; ?>?full">Full Site</a> | Mobile Site
 				<?php else: ?>
-					Full Site | <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]; ?>?mobile">Mobile Site</a>
+					Full Site | <a href="<?php echo $exploded_uri[0]; ?>?mobile">Mobile Site</a>
 				<?php endif; ?>
 			</div>
 			<?php
