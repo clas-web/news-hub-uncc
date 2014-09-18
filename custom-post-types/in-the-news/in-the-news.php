@@ -115,6 +115,7 @@ class NH_InTheNewsCustomPostType
 		wp_nonce_field( plugin_basename( __FILE__ ), 'exchange-custom-in-the-news-post' );
 
 		$name = get_post_meta( $post->ID, 'name', true );
+		$relationship = get_post_meta( $post->ID, 'relationship', true );
 		$department = get_post_meta( $post->ID, 'department', true );
 		$publication_date = get_post_meta( $post->ID, 'publication-date', true );
 		$news_outlet = get_post_meta( $post->ID, 'news-outlet', true );
@@ -123,6 +124,8 @@ class NH_InTheNewsCustomPostType
 		?>
 		<label for="clas-event-name">Name</label><br/>
 		<input type="text" id="exchange-in-the-news-name" name="exchange-in-the-news-name" value="<?php echo esc_attr($name); ?>" size="60" /><br/>
+		<label for="clas-event-relationship">Relationship</label><br/>
+		<input type="text" id="exchange-in-the-news-relationship" name="exchange-in-the-news-relationship" value="<?php echo esc_attr($relationship); ?>" size="60" /><br/>
 		<label for="clas-event-department">Department</label><br/>
 		<input type="text" id="exchange-in-the-news-department" name="exchange-in-the-news-department" value="<?php echo esc_attr($department); ?>" size="60" /><br/>
 		<div style="height:1px;background-color:#aaa;margin:5px 0px;"></div>
@@ -153,12 +156,14 @@ class NH_InTheNewsCustomPostType
 		return;
 
 		$name = $_POST['exchange-in-the-news-name'];
+		$relationship = $_POST['exchange-in-the-news-relationship'];
 		$department = $_POST['exchange-in-the-news-department'];
 		$publication_date = $_POST['exchange-in-the-news-publication-date'];
 		$news_outlet = $_POST['exchange-in-the-news-news-outlet'];
 		$remote_url = $_POST['exchange-in-the-news-remote-url'];
 
 		update_post_meta( $post_id, 'name', $name );
+		update_post_meta( $post_id, 'relationship', $relationship );
 		update_post_meta( $post_id, 'department', $department );
 		update_post_meta( $post_id, 'publication-date', $publication_date );
 		update_post_meta( $post_id, 'news-outlet', $news_outlet );
@@ -169,7 +174,7 @@ class NH_InTheNewsCustomPostType
 		$pub_date = DateTime::createFromFormat( 'Y-m-d', $publication_date );
 		$publication_date = $pub_date->format('F d, Y');
 		$news_title = get_the_title($post_id);
-		$contents = "$name. $department. $publication_date. <em>$news_outlet</em>. \"$news_title\".";
+		$contents = "$name, $relationship. $department. $publication_date. <em>$news_outlet</em>. \"$news_title\".";
 		
 		global $wpdb;
 		$wpdb->query(
