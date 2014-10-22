@@ -149,6 +149,9 @@ class NH_InTheNewsCustomPostType
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
 		
+		if ( !isset($_POST) || !isset($_POST['exchange-custom-in-the-news-post']) )
+		return;
+		
 		if ( !wp_verify_nonce( $_POST['exchange-custom-in-the-news-post'], plugin_basename( __FILE__ ) ) )
 		return;
 		
