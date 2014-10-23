@@ -76,4 +76,9 @@
 /* 		float:left; */
 	}
 
+	
+	#sidebar .widget_nh-clas-search-widget input[type=submit] {
+		background-color:#333;
+		border-color:#333;
+	}
 

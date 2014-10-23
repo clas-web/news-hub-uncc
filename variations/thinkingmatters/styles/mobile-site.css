@@ -6,4 +6,25 @@
 	}
 
 
-
+	#sidebar form.searchform {
+		border:solid 1px #ccc;	
+	}
+	
+	#sidebar form.searchform:before,
+	#sidebar form.searchform:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+	
+	/* For IE 6/7 (trigger hasLayout) */
+	#sidebar form.searchform {
+		zoom:1;
+	}
+	
+	#sidebar .widget_nh-clas-search-widget .textbox_wrapper,
+	#sidebar form.search input#search-widget-textbox {
+		border:none;
+	}
+	
+	
