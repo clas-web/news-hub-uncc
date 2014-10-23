@@ -237,10 +237,6 @@
 		margin:5px;
 	}
 	
-	.story {
-		padding:5px 0px;
-	}
-	
 	.story.portrait-image .image,
 	.story.landscape-image .image {
 		float:left;
@@ -404,87 +400,12 @@
  * Archives Page
  ****************************************************************************************/
 
-	body.archive #main #content.none-image .story,
-	body.search #main #content.none-image .story {
-		border-bottom:solid 1px #ccc;
-		padding:5px;
-		margin-left:-5px;
-		margin-right:-5px;
-	}
-	
 	#page-navigation {
 		padding:5px;
 	}
 	
 	body.archive #main #content.in-the-news-section h3 {
 		padding:0px 5px;
-	}
-	
-	body.archive #main #content.events-section .agenda-day {
-		margin:0px;
-	}
-	
-	body.archive #main #content.events-section .story {
-		margin:0px;
-		margin-bottom:10px;
-	}
-	
-	body.archive #main #content.events-section .date-label {
-		background-color:#eedeb9;
-		border:solid 1px #ccb55c;
-		border-radius:5px;
-		text-align:center;
-		padding:10px;
-		margin-bottom:10px;
-	}
-	
-	body.archive #main #content.events-section .date-label > div {
-		display:inline;
-	}
-	
-	body.archive #main #content.events-section .event-info {
-		margin-bottom:5px;
-		border-bottom:solid 1px #efefef;
-		padding-bottom:5px;
-	}
-	
-	body.archive #main #content.events-section .story {
-		padding:0px;
-	}
-
-	body.archive #main #content.events-section .story h3 {
-		margin-bottom:5px;
-	}
-	
-	body.archive #main #content.events-section .event-info:before,
-	body.archive #main #content.events-section .event-info:after {
-		content:"";
-		display:table;
-	}
-	
-	body.archive #main #content.events-section .event-info:after {
-		clear:both;
-	}
-	
-	/* For IE 6/7 (trigger hasLayout) */
-	body.archive #main #content.events-section .event-info {
-		zoom:1;
-	}
-	
-	body.archive #main #content.events-section .event-info > div {
-		display:inline;
-		padding-top:5px;
-		padding-bottom:5px;
-	}
-	
-	body.archive #main #content.events-section .event-info > div.time {
-		display:inline-block;
-		padding-right:10px;
-		text-align:right;
-	}
-	
-	body.archive #main #content.events-section .event-info > div.location {
-		float:right;
 	}
 	
 	#content iframe {
