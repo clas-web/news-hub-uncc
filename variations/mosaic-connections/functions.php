@@ -11,7 +11,6 @@ add_action( 'pre_get_posts', 'nh_clas_connections_alter_archive_order' );
 
 
 
-<<<<<<< HEAD
 // add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
 
 
@@ -20,16 +19,6 @@ add_filter( 'wp_enqueue_scripts', 'nh_enqueue_mt_script' );
 function nh_enqueue_mt_script()
 {
 	nh_enqueue_file( 'script', 'mt-more-tags', 'variations/connections/scripts/mt-more-tags.js' );
-=======
-add_filter( 'pre_get_posts', 'nh_clas_connections_show_connections_as_posts' );
-
-
-add_filter( 'enqueue_scripts', 'nh_enqueue_mt_script' );
-
-function nh_enqueue_mt_script()
-{
-	wp_enqueue_script( 'mt-script', dirname(__FILE__).'/scripts/mt-more-tags.js' );
->>>>>>> FETCH_HEAD
 }
 
 function nh_clas_connections_show_connections_as_posts( $wp_query )
