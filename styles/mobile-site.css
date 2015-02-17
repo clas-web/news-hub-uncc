@@ -278,21 +278,35 @@
 		padding:15px 0px 12px 0px;
 	}
 
-	#secondary iframe.twitter-timeline {
-		display:block;
-		margin:0px 1%;
-		width:98% !important;
-		min-width:98% !important;
-		max-width:98% !important;
+	#sidebar .widget_twitter_timeline {
+		position:relative;
 	}
 	
-	#secondary iframe.twitter-timeline:before {
+	#sidebar iframe.twitter-timeline {
+		display:block;
+		margin-left:5px;
+		width:80% !important;
+		min-width:80% !important;
+		max-width:80% !important;
+		//position:absolute;
+		//left:5px;
+		//right:20%;
+		background-color:#fcfcfc;
+	}
+	
+	#sidebar iframe.twitter-timeline img {
+		max-width:80%;
+	}
+	
+/* 
+	#sidebar iframe.twitter-timeline:before {
 		content:'<div class="twitter-container">';
 	}
 
-	#secondary iframe.twitter-timeline:after {
+	#sidebar iframe.twitter-timeline:after {
 		content:'</div>';
-	}	
+	}
+ */
 
 /****************************************************************************************
  * Footer
