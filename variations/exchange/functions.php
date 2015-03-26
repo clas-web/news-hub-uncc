@@ -24,7 +24,7 @@ add_action( 'admin_menu' , 'nh_remove_events_taxonomies' );
 if( !function_exists('nh_alter_news_feed_posts') ):
 function nh_alter_news_feed_posts( $posts, $wp_query )
 {
-	if( !is_feed() || !$wp_query->is_main_query() ) return $posts;
+	if( is_admin() || !$wp_query->is_main_query() || !is_feed() ) return $posts;
 
 	$section = nh_get_section( $wp_query );
 	if( $section->key !== 'news' ) return $posts;
@@ -48,7 +48,7 @@ endif;
 if( !function_exists('nh_alter_events_feed_posts') ):
 function nh_alter_events_feed_posts( $posts, $wp_query )
 {
-	if( !is_feed() || !$wp_query->is_main_query() ) return $posts;
+	if( is_admin() || !$wp_query->is_main_query() || !is_feed() ) return $posts;
 
 	$section = nh_get_section( $wp_query );
 	if( $section->key !== 'events' ) return $posts;
