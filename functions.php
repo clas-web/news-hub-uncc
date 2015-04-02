@@ -176,6 +176,7 @@ function nh_get_section_link( $link, $section )
 			MTType::CombinedArchive,
 			$section->post_types,
 			array_keys($section->taxonomies),
+			false,
 			$section->taxonomies
 		);
 	}

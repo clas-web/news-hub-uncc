@@ -14,7 +14,7 @@
 <?php endif; ?>
 
 <?php if( function_exists('mt_create_interface') ):
-mt_create_interface( MTType::FilteredArchive, array('connection'), array('connection-group','connection-link') );
+mt_create_interface( MTType::FilteredArchive, array('connection'), array('connection-group','connection-link'), 0 );
 endif; ?>
 
 <?php
