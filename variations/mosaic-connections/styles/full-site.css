@@ -1,4 +1,96 @@
+/****************************************************************************************
+ * Main
+ ****************************************************************************************/
 
+	#content {
+		float:left;
+		min-height:1px;
+		border-right:solid 1px transparent;
+		border-left:solid 1px transparent;
+		padding-right:20px;
+		padding-left:20px;
+		margin-right:-1px;
+		margin-left:-1px;
+	}
+	
+	#content.full-width,
+	#content.two-sidebars-width.hide-left-sidebar.hide-right-sidebar,
+	#content.one-sidebar-width.left-sidebar.hide-left-sidebar,
+	#content.one-sidebar-width.right-sidebar.hide-right-sidebar {
+		min-width:950px;
+		width:950px;
+	}
+	
+	#content.one-sidebar-width,
+	#content.two-sidebars-width.hide-left-sidebar,
+	#content.two-sidebars-width.hide-right-sidebar {
+		float:left;
+		min-width:650px;
+		width:650px;
+		/* border-right:solid 1px #CCCCCC; */
+	}
+
+	#content.two-sidebars-width {
+		float:left;
+		min-width:419px;
+		width:419px;
+	}
+	
+	#left-sidebar {
+		float:left;
+		width:220px;
+		/* border-right:solid 1px #CCCCCC; */
+		padding-right:20px;
+		position:relative;
+	}
+
+	#sidebar {
+		float:left;
+		width:220px;
+		border-left:solid 1px transparent;
+		padding-left:20px;
+		position:relative;
+	}
+
+	#content.num-columns-2 .column {
+		/* width:324px; */
+		width:224px;
+		float:left;
+	}
+
+	#content.num-columns-2 .column.front-page-column-1,
+	#content.num-columns-2 .column.odd {
+		/* border-right:solid 1px #CCCCCC; */
+		padding-right:20px;
+		margin-right:-1px;
+	}
+
+	#content.num-columns-2 .column.front-page-column-2,
+	#content.num-columns-2 .column.even {
+		/* border-left:solid 1px #CCCCCC; */
+		position:relative;
+		padding-left:20px;
+	}
+	
+	body.archive #content.num-columns-1 .story,
+	body.search #content.num-columns-1 .story {
+		/* border-bottom:solid 1px #ccc; */
+		padding:10px 0px;
+	}
+
+
+/****************************************************************************************
+ * Header
+ ****************************************************************************************/
+
+
+	#header .title-box a {
+		color: #333;
+	}
+	
+	#site-searchform {
+		border: 1px solid #ccc;
+	}
 
 
 	#content .story > h3 {
