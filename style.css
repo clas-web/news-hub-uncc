@@ -497,14 +497,14 @@ Tags:
 
 	.widget_pages ul li.page_item_has_children > a ,
 	.widget_nav_menu ul li.menu-item-has-children > a {
-		background-image:url('images/list-arrow-right.png');
+		background-image:url('./images/list-arrow-right.png');
 	}
 	
 	.widget_pages ul li.current_page_item.page_item_has_children > a,
 	.widget_pages ul li.current_page_ancestor.page_item_has_children > a,
 	.widget_nav_menu ul li.current-menu-item.menu-item-has-children > a,
 	.widget_nav_menu ul li.current-menu-ancestor.menu-item-has-children > a {
-		background-image:url('images/list-arrow-down.png');
+		background-image:url('./images/list-arrow-down.png');
 	}
 	
 	
@@ -538,7 +538,7 @@ Tags:
 	}
 	
 	.widget_categories ul li.has-children > a {
-		background-image:url('images/list-arrow-right.png');
+		background-image:url('./images/list-arrow-right.png');
 		background-repeat:no-repeat;
 		background-position-y:0.5em;
 		background-position-x:0.4em;
@@ -547,7 +547,7 @@ Tags:
 	.widget_categories ul li.has-children.current-cat > a,
 	.widget_categories ul li.has-children.current-cat-parent > a,
 	.widget_categories ul li.has-children.current-cat-ancestor > a {
-		background-image:url('images/list-arrow-down.png');
+		background-image:url('./images/list-arrow-down.png');
 	}
 	
 	.widget_categories ul li.current-cat > ul.children,
@@ -676,7 +676,7 @@ Tags:
 	}
 
 	#sidebar .widget_nh-clas-search-widget input[type=submit] {
-		background: #006633 url('images/google-search-button.png') no-repeat center center;
+		background: #006633 url('./images/google-search-button.png') no-repeat center center;
 		color: transparent;
 		border: none;
 		width: 30px;
