@@ -7,8 +7,6 @@
 		min-height:1px;
 		border-right:solid 1px transparent;
 		border-left:solid 1px transparent;
-		padding-right:20px;
-		padding-left:20px;
 		margin-right:-1px;
 		margin-left:-1px;
 	}
@@ -25,15 +23,15 @@
 	#content.two-sidebars-width.hide-left-sidebar,
 	#content.two-sidebars-width.hide-right-sidebar {
 		float:left;
-		min-width:650px;
-		width:650px;
+		min-width:689px;
+		width:689px;
 		/* border-right:solid 1px #CCCCCC; */
 	}
 
 	#content.two-sidebars-width {
 		float:left;
-		min-width:419px;
-		width:419px;
+		min-width:444px;
+		width:444px;
 	}
 	
 	#left-sidebar {
