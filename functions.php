@@ -24,6 +24,44 @@ add_filter( 'the_content', 'nh_clas_alter_formiable_content' );
 add_filter( 'section-link', 'nh_get_section_link', 9999, 2 );
 
 
+// Modify Admin bar.
+add_action( 'admin_bar_menu', 'uncc_add_uncc_logo', 1 );
+add_action( 'wp_before_admin_bar_render', 'uncc_remove_wp_logo' );
+
+
+/**
+ * Add the UNCC logo to admin bar.
+ * @param  WP_Admin_Bar  $wp_admin_bar  WordPress Toolbar API controller.
+ */
+if( !function_exists('uncc_add_uncc_logo') ):
+function uncc_add_uncc_logo( $wp_admin_bar )
+{
+	$wp_admin_bar->add_menu(
+		array(
+			'id'	=> 'uncc-logo',
+			'href'	=> '#',
+			'meta'	=> array(
+				'class'	=> 'uncc-icon',
+			),
+		)
+	);
+}
+endif;
+
+
+/**
+ * Remove the default WP logo from the admin bar.
+ * @param  WP_Admin_Bar  $wp_admin_bar  WordPress Toolbar API controller.
+ */
+if( !function_exists('uncc_remove_wp_logo') ):
+function uncc_remove_wp_logo( $wp_admin_bar )
+{
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('wp-logo');
+}
+endif;
+
+
 
 //----------------------------------------------------------------------------------------
 // 
