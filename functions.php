@@ -10,8 +10,8 @@
 //========================================================================================
 //====================================================== Default filters and actions =====
 
-require_once( dirname(__FILE__).'/widgets/clas-buttons-widget.php' );
-require_once( dirname(__FILE__).'/widgets/search-widget.php' );
+require_once( __DIR__.'/widgets/clas-buttons-widget.php' );
+require_once( __DIR__.'/widgets/search-widget.php' );
 
 add_filter( 'nh-link-target', 'nh_clas_get_link_target', 9999, 3 );
 
@@ -43,6 +43,13 @@ function uncc_add_uncc_logo( $wp_admin_bar )
 			'meta'	=> array(
 				'class'	=> 'uncc-icon',
 			),
+		)
+	);
+	$wp_admin_bar->add_menu(
+		array(
+			'id'	=> 'clas-link',
+			'href'	=> 'http://clas.uncc.edu',
+			'title'	=> 'College of Liberal Arts & Sciences',
 		)
 	);
 }
